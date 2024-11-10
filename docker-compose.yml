@@ -1,4 +1,4 @@
-# docker-compose.yml
+# Crear el archivo actualizado
 version: '3'
 services:
   web:
@@ -9,6 +9,7 @@ services:
       - "8069:8069"
     volumes:
       - ./volumes/odoo/data:/var/lib/odoo
+      - ./volumes/odoo/sessions:/var/lib/odoo/sessions
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
       - ./volumes/odoo/web/logs:/var/log/odoo
