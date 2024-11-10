@@ -9,5 +9,9 @@ python odoo-bin -r odoo -w odoo --addons-path=addons -d odoo -i base
 
 python odoo-bin -r odoo -w odoo --addons-path=addons -d odoo 
 
+#Cuando desarrolles modulos propios
+python odoo-bin -r odoo -w odoo --addons-path=addons,modules -d odoo 
+
+
 
 #user=admin password=admin, esto lo crea odoo

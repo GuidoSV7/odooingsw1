@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista Form de Profesor -->
+    <record id="view_profesor_form" model="ir.ui.view">
+        <field name="name">gestion_educativa.profesor.form</field>
+        <field name="model">gestion_educativa.profesor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="nombre_completo" placeholder="Nombre Completo" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="ci" />
+                            <field name="numero_matricula" />
+                            <field name="telefono" />
+                        </group>
+                        <group>
+                            <field name="email" />
+                            <field name="direccion" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Horarios">
+                            <field name="horario_ids">
+                                <list>
+                                    <field name="dia" />
+                                    <field name="hora_inicio" widget="float_time" />
+                                    <field name="hora_fin" widget="float_time" />
+                                    <field name="materia_id" />
+                                    <field name="grado_id" />
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Comunicados">
+                            <notebook>
+                                <page string="Comunicados Recibidos">
+                                    <field name="comunicado_recibido_ids">
+                                        <list>
+                                            <field name="titulo" />
+                                            <field name="cuando" />
+                                            <field name="donde" />
+                                            <field name="motivo" />
+                                            <field name="visto" />
+                                        </list>
+                                    </field>
+                                </page>
+                                <page string="Comunicados Creados">
+                                    <field name="comunicado_creado_ids">
+                                        <list>
+                                            <field name="titulo" />
+                                            <field name="cuando" />
+                                            <field name="donde" />
+                                            <field name="motivo" />
+                                        </list>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Lista de Profesores -->
+    <record id="view_profesor_list" model="ir.ui.view">
+        <field name="name">gestion_educativa.profesor.list</field>
+        <field name="model">gestion_educativa.profesor</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="nombre_completo" />
+                <field name="ci" />
+                <field name="numero_matricula" />
+                <field name="telefono" />
+                <field name="email" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Search de Profesores -->
+    <record id="view_profesor_search" model="ir.ui.view">
+        <field name="name">gestion_educativa.profesor.search</field>
+        <field name="model">gestion_educativa.profesor</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre_completo" />
+                <field name="ci" />
+                <field name="numero_matricula" />
+                <field name="email" />
+                <separator />
+                <filter string="Con Horarios" name="con_horarios"
+                    domain="[('horario_ids', '!=', False)]" />
+                <filter string="Sin Horarios" name="sin_horarios"
+                    domain="[('horario_ids', '=', False)]" />
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción de ventana para Profesor -->
+    <record id="action_profesor" model="ir.actions.act_window">
+        <field name="name">Profesores</field>
+        <field name="res_model">gestion_educativa.profesor</field>
+        <field name="view_mode">list,form</field>
+        <field name="target">main</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo profesor
+            </p>
+            <p>
+                Registre aquí los datos de los profesores.
+            </p>
+        </field>
+    </record>
+</odoo>

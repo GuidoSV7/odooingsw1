@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Modificar vista form de Materia -->
+    <record id="view_materia_form" model="ir.ui.view">
+        <field name="name">gestion_educativa.materia.form</field>
+        <field name="model">gestion_educativa.materia</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sigla" placeholder="Sigla de la Materia"
+                                style="font-size: 24px; font-weight: bold;" />
+                        </h1>
+                        <h2>
+                            <field name="nombre" placeholder="Nombre de la Materia"
+                                style="font-size: 16px;" />
+                        </h2>
+                    </div>
+                    <notebook>
+                        <!-- <page string="Temas">
+              <field name="tema_ids">
+                <list editable="bottom">
+                  <field name="nombre" />
+                  <field name="trimestre" widget="selection" />
+                </list>
+              </field>
+            </page> -->
+                        <page string="Horarios">
+                            <field name="horario_ids" readonly="1">
+                                <list>
+                                    <field name="dia" />
+                                    <field name="hora_inicio" widget="float_time" />
+                                    <field name="hora_fin" widget="float_time" />
+                                    <field name="profesor_id" />
+                                    <field name="grado_id" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Lista de Materias -->
+    <record id="view_materia_list" model="ir.ui.view">
+        <field name="name">gestion_educativa.materia.list</field>
+        <field name="model">gestion_educativa.materia</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sigla" />
+                <field name="nombre" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Search de Materias -->
+    <record id="view_materia_search" model="ir.ui.view">
+        <field name="name">gestion_educativa.materia.search</field>
+        <field name="model">gestion_educativa.materia</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre" />
+                <field name="sigla" />
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Sigla" name="group_by_sigla" context="{'group_by': 'sigla'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_materia" model="ir.actions.act_window">
+        <field name="name">Materias</field>
+        <field name="res_model">gestion_educativa.materia</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

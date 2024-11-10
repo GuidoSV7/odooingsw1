@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas Form de Grado -->
+    <record id="view_grado_form" model="ir.ui.view">
+        <field name="name">gestion_educativa.grado.form</field>
+        <field name="model">gestion_educativa.grado</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="nombre" placeholder="Nombre del Grado" />
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="sigla" />
+                    </group>
+                    <notebook>
+                        <page string="Alumnos">
+                            <field name="alumno_ids">
+                                <list>
+                                    <field name="nombre_completo" />
+                                    <field name="numero_matricula" />
+                                    <field name="numero_kardex" />
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Horarios">
+                            <field name="horario_ids">
+                                <list>
+                                    <field name="dia" />
+                                    <field name="hora_inicio" widget="float_time" />
+                                    <field name="hora_fin" widget="float_time" />
+                                    <field name="profesor_id" />
+                                    <field name="materia_id" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_grado" model="ir.actions.act_window">
+        <field name="name">Grados</field>
+        <field name="res_model">gestion_educativa.grado</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

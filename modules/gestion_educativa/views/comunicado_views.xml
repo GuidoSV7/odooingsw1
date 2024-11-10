@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista Form de Comunicado -->
+    <record id="view_comunicado_form" model="ir.ui.view">
+        <field name="name">gestion_educativa.comunicado.form</field>
+        <field name="model">gestion_educativa.comunicado</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="titulo" placeholder="Título del comunicado..." />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="donde" placeholder="Ubicación..." />
+                            <field name="cuando" placeholder="Fecha y hora..." />
+                            <field name="motivo" placeholder="Motivo del comunicado..." />
+                        </group>
+                        <group>
+                            <!-- Cambios en el campo imagen -->
+                            <field name="imagen"
+                                widget="image"
+                                class="oe_avatar oe_left"
+                                filename="imagen_filename"
+                                options="{
+                              'preview_image': 'imagen',
+                              'size': [400, 400],
+                              'zoom': true
+                          }"
+                            />
+                            <field name="imagen_filename" invisible="1" />
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Destinatarios">
+                            <group>
+                                <group string="Enviar a todos">
+                                    <field name="todos_profesores" />
+                                    <field name="todos_apoderados" />
+                                    <field name="todos_alumnos" />
+                                </group>
+                                <group string="Destinatarios Específicos">
+                                    <field name="profesor_ids" widget="many2many_tags" />
+                                    <field name="apoderado_ids" widget="many2many_tags" />
+                                    <field name="alumno_ids" widget="many2many_tags" />
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Lista de Comunicados -->
+    <record id="view_comunicado_list" model="ir.ui.view">
+        <field name="name">gestion_educativa.comunicado.list</field>
+        <field name="model">gestion_educativa.comunicado</field>
+        <field name="arch" type="xml">
+            <list string="Comunicados">
+                <field name="titulo" />
+                <field name="donde" />
+                <field name="cuando" />
+                <field name="profesor_ids" widget="many2many_tags" />
+                <field name="apoderado_ids" widget="many2many_tags" />
+                <field name="alumno_ids" widget="many2many_tags" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Search de Comunicados -->
+    <record id="view_comunicado_search" model="ir.ui.view">
+        <field name="name">gestion_educativa.comunicado.search</field>
+        <field name="model">gestion_educativa.comunicado</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="titulo" />
+                <field name="donde" />
+                <field name="motivo" />
+                <filter string="Vistos" name="vistos" domain="[('visto', '=', True)]" />
+                <filter string="No Vistos" name="no_vistos" domain="[('visto', '=', False)]" />
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Lugar" name="group_donde" context="{'group_by': 'donde'}" />
+                    <filter string="Fecha" name="group_cuando" context="{'group_by': 'cuando'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_comunicado" model="ir.actions.act_window">
+        <field name="name">Comunicados</field>
+        <field name="res_model">gestion_educativa.comunicado</field>
+        <field name="view_mode">list,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear nuevo comunicado
+            </p>
+            <p>
+                Cree un nuevo comunicado para informar a la comunidad educativa.
+            </p>
+        </field>
+    </record>
+</odoo>

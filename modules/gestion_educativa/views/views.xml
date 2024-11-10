@@ -1,0 +1,602 @@
+<odoo>
+  <!-- READ : PROFESOR -->
+
+  <!-- Vista Form de Profesor -->
+  <!-- <record id="view_profesor_form" model="ir.ui.view">
+    <field name="name">gestion_educativa.profesor.form</field>
+    <field name="model">gestion_educativa.profesor</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <div class="oe_title">
+            <h1>
+              <field name="nombre_completo" placeholder="Nombre Completo" />
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="ci" />
+              <field name="numero_matricula" />
+              <field name="telefono" />
+            </group>
+            <group>
+              <field name="email" />
+              <field name="direccion" />
+            </group>
+          </group>
+          <notebook>
+            <page string="Horarios">
+              <field name="horario_ids">
+                <list>
+                  <field name="dia" />
+                  <field name="hora_inicio" widget="float_time" />
+                  <field name="hora_fin" widget="float_time" />
+                  <field name="materia_id" />
+                  <field name="grado_id" />
+                </list>
+              </field>
+            </page>
+            <page string="Comunicados">
+              <notebook>
+                <page string="Comunicados Recibidos">
+                  <field name="comunicado_recibido_ids">
+                    <list>
+                      <field name="titulo" />
+                      <field name="cuando" />
+                      <field name="donde" />
+                      <field name="motivo" />
+                      <field name="visto" />
+                    </list>
+                  </field>
+                </page>
+                <page string="Comunicados Creados">
+                  <field name="comunicado_creado_ids">
+                    <list>
+                      <field name="titulo" />
+                      <field name="cuando" />
+                      <field name="donde" />
+                      <field name="motivo" />
+                    </list>
+                  </field>
+                </page>
+              </notebook>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record> -->
+
+  <!-- Vista Lista de Profesores -->
+  <!-- <record id="view_profesor_list" model="ir.ui.view">
+    <field name="name">gestion_educativa.profesor.list</field>
+    <field name="model">gestion_educativa.profesor</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="nombre_completo" />
+        <field name="ci" />
+        <field name="numero_matricula" />
+        <field name="telefono" />
+        <field name="email" />
+      </list>
+    </field>
+  </record> -->
+
+  <!-- Vista Search de Profesores -->
+  <!-- <record id="view_profesor_search" model="ir.ui.view">
+    <field name="name">gestion_educativa.profesor.search</field>
+    <field name="model">gestion_educativa.profesor</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="nombre_completo" />
+        <field name="ci" />
+        <field name="numero_matricula" />
+        <field name="email" />
+        <separator />
+        <filter string="Con Horarios" name="con_horarios"
+          domain="[('horario_ids', '!=', False)]" />
+        <filter string="Sin Horarios" name="sin_horarios"
+          domain="[('horario_ids', '=', False)]" />
+      </search>
+    </field>
+  </record> -->
+
+  <!-- READ : APODERADO -->
+
+  <!-- Vista Form de Apoderado -->
+  <!-- <record id="view_apoderado_form" model="ir.ui.view">
+    <field name="name">gestion_educativa.apoderado.form</field>
+    <field name="model">gestion_educativa.apoderado</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <div class="oe_title">
+            <h1>
+              <field name="nombre_completo" placeholder="Nombre Completo" />
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="ci" />
+              <field name="numero_matricula" />
+              <field name="telefono" />
+            </group>
+            <group>
+              <field name="email" />
+              <field name="direccion" />
+              <field name="ocupacion" />
+            </group>
+          </group>
+          <notebook>
+            <page string="Alumnos Asignados">
+              <field name="alumno_ids" readonly="1">
+                <list>
+                  <field name="nombre_completo" />
+                  <field name="numero_matricula" />
+                  <field name="grado_id" />
+                </list>
+              </field>
+            </page>
+            <page string="Comunicados">
+              <field name="comunicado_ids">
+                <list>
+                  <field name="titulo" />
+                  <field name="cuando" />
+                  <field name="donde" />
+                  <field name="visto" />
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record> -->
+
+  <!-- Vista Lista de Apoderados -->
+  <!-- <record id="view_apoderado_list" model="ir.ui.view">
+    <field name="name">gestion_educativa.apoderado.list</field>
+    <field name="model">gestion_educativa.apoderado</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="nombre_completo" />
+        <field name="ci" />
+        <field name="numero_matricula" />
+        <field name="telefono" />
+        <field name="email" />
+        <field name="ocupacion" />
+      </list>
+    </field>
+  </record> -->
+
+  <!-- READ : ALUMNO -->
+
+  <!-- Vistas Form de Alumno -->
+  <!-- <record id="view_alumno_form" model="ir.ui.view">
+    <field name="name">gestion_educativa.alumno.form</field>
+    <field name="model">gestion_educativa.alumno</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <div class="oe_title">
+            <h1>
+              <field name="nombre_completo" placeholder="Nombre Completo" />
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="ci" />
+              <field name="numero_matricula" />
+              <field name="numero_kardex" />
+            </group>
+            <group>
+              <field name="telefono" />
+              <field name="direccion" />
+              <field name="grado_id" />
+              <field name="apoderado_id" />
+            </group>
+          </group>
+          <notebook>
+            <page string="Comunicados">
+              <field name="comunicado_ids">
+                <list>
+                  <field name="titulo" />
+                  <field name="cuando" />
+                  <field name="donde" />
+                  <field name="visto" />
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record> -->
+
+  <!-- Vista Search de Alumnos -->
+  <!-- <record id="view_alumno_search" model="ir.ui.view">
+    <field name="name">gestion_educativa.alumno.search</field>
+    <field name="model">gestion_educativa.alumno</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="nombre_completo" />
+        <field name="ci" />
+        <field name="numero_matricula" />
+        <field name="numero_kardex" />
+        <field name="grado_id" />
+        <group expand="0" string="Agrupar Por">
+          <filter string="Grado" name="group_by_grado" context="{'group_by': 'grado_id'}" />
+        </group>
+      </search>
+    </field>
+  </record> -->
+
+  <!-- READ : MATERIA -->
+
+  <!-- Modificar vista form de Materia -->
+  <!-- <record id="view_materia_form" model="ir.ui.view">
+    <field name="name">gestion_educativa.materia.form</field>
+    <field name="model">gestion_educativa.materia</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <div class="oe_title">
+            <h1>
+              <field name="sigla" placeholder="Sigla de la Materia"
+                style="font-size: 24px; font-weight: bold;" />
+            </h1>
+            <h2>
+              <field name="nombre" placeholder="Nombre de la Materia"
+                style="font-size: 16px;" />
+            </h2>
+          </div>
+          <notebook>
+            <page string="Horarios">
+              <field name="horario_ids" readonly="1">
+                <list>
+                  <field name="dia" />
+                  <field name="hora_inicio" widget="float_time" />
+                  <field name="hora_fin" widget="float_time" />
+                  <field name="profesor_id" />
+                  <field name="grado_id" />
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record> -->
+
+  <!-- Vista Lista de Materias -->
+  <!-- <record id="view_materia_list" model="ir.ui.view">
+    <field name="name">gestion_educativa.materia.list</field>
+    <field name="model">gestion_educativa.materia</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="sigla" />
+        <field name="nombre" />
+      </list>
+    </field>
+  </record> -->
+
+  <!-- Vista Search de Materias -->
+  <!-- <record id="view_materia_search" model="ir.ui.view">
+    <field name="name">gestion_educativa.materia.search</field>
+    <field name="model">gestion_educativa.materia</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="nombre" />
+        <field name="sigla" />
+        <group expand="0" string="Agrupar Por">
+          <filter string="Sigla" name="group_by_sigla" context="{'group_by': 'sigla'}" />
+        </group>
+      </search>
+    </field>
+  </record> -->
+
+  <!-- READ : GRADO -->
+
+  <!-- Vistas Form de Grado -->
+  <!-- <record id="view_grado_form" model="ir.ui.view">
+    <field name="name">gestion_educativa.grado.form</field>
+    <field name="model">gestion_educativa.grado</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <div class="oe_title">
+            <h1>
+              <field name="nombre" placeholder="Nombre del Grado" />
+            </h1>
+          </div>
+          <group>
+            <field name="sigla" />
+          </group>
+          <notebook>
+            <page string="Alumnos">
+              <field name="alumno_ids">
+                <list>
+                  <field name="nombre_completo" />
+                  <field name="numero_matricula" />
+                  <field name="numero_kardex" />
+                </list>
+              </field>
+            </page>
+            <page string="Horarios">
+              <field name="horario_ids">
+                <list>
+                  <field name="dia" />
+                  <field name="hora_inicio" widget="float_time" />
+                  <field name="hora_fin" widget="float_time" />
+                  <field name="profesor_id" />
+                  <field name="materia_id" />
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record> -->
+
+  <!-- READ : HORARIO -->
+
+  <!-- Vistas de Horario -->
+  <!-- <record id="view_horario_form" model="ir.ui.view">
+    <field name="name">gestion_educativa.horario.form</field>
+    <field name="model">gestion_educativa.horario</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <group>
+              <field name="dia" />
+              <field name="hora_inicio" widget="float_time" />
+              <field name="hora_fin" widget="float_time" />
+            </group>
+            <group>
+              <field name="profesor_id" />
+              <field name="materia_id" />
+              <field name="grado_id" />
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record> -->
+
+  <!-- Vista Lista de Horarios -->
+  <!-- <record id="view_horario_list" model="ir.ui.view">
+    <field name="name">gestion_educativa.horario.list</field>
+    <field name="model">gestion_educativa.horario</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="display_name" />
+        <field name="profesor_id" />
+        <field name="materia_id" />
+        <field name="grado_id" />
+      </list>
+    </field>
+  </record> -->
+
+  <!-- Vista Search de Horarios -->
+  <!-- <record id="view_horario_search" model="ir.ui.view">
+    <field name="name">gestion_educativa.horario.search</field>
+    <field name="model">gestion_educativa.horario</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="profesor_id" />
+        <field name="materia_id" />
+        <field name="grado_id" />
+        <separator />
+        <filter string="Lunes" name="lunes" domain="[('dia', '=', 'lunes')]" />
+        <filter string="Martes" name="martes" domain="[('dia', '=', 'martes')]" />
+        <filter string="Miércoles" name="miercoles" domain="[('dia', '=', 'miercoles')]" />
+        <filter string="Jueves" name="jueves" domain="[('dia', '=', 'jueves')]" />
+        <filter string="Viernes" name="viernes" domain="[('dia', '=', 'viernes')]" />
+        <group expand="0" string="Agrupar Por">
+          <filter string="Día" name="group_by_dia" context="{'group_by': 'dia'}" />
+          <filter string="Profesor" name="group_by_profesor"
+            context="{'group_by': 'profesor_id'}" />
+          <filter string="Materia" name="group_by_materia"
+            context="{'group_by': 'materia_id'}" />
+          <filter string="Grado" name="group_by_grado" context="{'group_by': 'grado_id'}" />
+        </group>
+      </search>
+    </field>
+  </record> -->
+
+  <!-- READ : COMUNICADO -->
+
+  <!-- Vista Form de Comunicado -->
+  <!-- <record id="view_comunicado_form" model="ir.ui.view">
+    <field name="name">gestion_educativa.comunicado.form</field>
+    <field name="model">gestion_educativa.comunicado</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <div class="oe_title">
+            <h1>
+              <field name="titulo" placeholder="Título del comunicado..." />
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="donde" placeholder="Ubicación..." />
+              <field name="cuando" placeholder="Fecha y hora..." />
+              <field name="motivo" placeholder="Motivo del comunicado..." />
+            </group>
+            <group>
+              <field name="imagen"
+                widget="image"
+                class="oe_avatar oe_left"
+                filename="imagen_filename"
+                options="{
+                              'preview_image': 'imagen',
+                              'size': [400, 400],
+                              'zoom': true
+                          }"
+              />
+              <field name="imagen_filename" invisible="1" />
+            </group>
+          </group>
+
+          <notebook>
+            <page string="Destinatarios">
+              <group>
+                <group string="Enviar a todos">
+                  <field name="todos_profesores" />
+                  <field name="todos_apoderados" />
+                  <field name="todos_alumnos" />
+                </group>
+                <group string="Destinatarios Específicos">
+                  <field name="profesor_ids" widget="many2many_tags" />
+                  <field name="apoderado_ids" widget="many2many_tags" />
+                  <field name="alumno_ids" widget="many2many_tags" />
+                </group>
+              </group>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record> -->
+
+  <!-- Vista Lista de Comunicados -->
+  <!-- <record id="view_comunicado_list" model="ir.ui.view">
+    <field name="name">gestion_educativa.comunicado.list</field>
+    <field name="model">gestion_educativa.comunicado</field>
+    <field name="arch" type="xml">
+      <list string="Comunicados">
+        <field name="titulo" />
+        <field name="donde" />
+        <field name="cuando" />
+        <field name="profesor_ids" widget="many2many_tags" />
+        <field name="apoderado_ids" widget="many2many_tags" />
+        <field name="alumno_ids" widget="many2many_tags" />
+      </list>
+    </field>
+  </record> -->
+
+  <!-- Vista Search de Comunicados -->
+  <!-- <record id="view_comunicado_search" model="ir.ui.view">
+    <field name="name">gestion_educativa.comunicado.search</field>
+    <field name="model">gestion_educativa.comunicado</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="titulo" />
+        <field name="donde" />
+        <field name="motivo" />
+        <filter string="Vistos" name="vistos" domain="[('visto', '=', True)]" />
+        <filter string="No Vistos" name="no_vistos" domain="[('visto', '=', False)]" />
+        <group expand="0" string="Agrupar Por">
+          <filter string="Lugar" name="group_donde" context="{'group_by': 'donde'}" />
+          <filter string="Fecha" name="group_cuando" context="{'group_by': 'cuando'}" />
+        </group>
+      </search>
+    </field>
+  </record> -->
+
+
+  <!-- Acciones de Menú -->
+  <!-- <record id="action_profesor" model="ir.actions.act_window">
+    <field name="name">Profesores</field>
+    <field name="res_model">gestion_educativa.profesor</field>
+    <field name="view_mode">list,form</field>
+    <field name="target">main</field>
+  </record> -->
+
+
+  <!-- Acciones de Menú para los nuevos modelos -->
+  <!-- <record id="action_apoderado" model="ir.actions.act_window">
+    <field name="name">Apoderados</field>
+    <field name="res_model">gestion_educativa.apoderado</field>
+    <field name="view_mode">list,form</field>
+  </record> -->
+
+  <!-- <record id="action_comunicado" model="ir.actions.act_window">
+    <field name="name">Comunicados</field>
+    <field name="res_model">gestion_educativa.comunicado</field>
+    <field name="view_mode">list,form,kanban</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crear nuevo comunicado
+      </p>
+      <p>
+        Cree un nuevo comunicado para informar a la comunidad educativa.
+      </p>
+    </field>
+  </record> -->
+
+  <!-- <record id="action_horario" model="ir.actions.act_window">
+    <field name="name">Horarios</field>
+    <field name="res_model">gestion_educativa.horario</field>
+    <field name="view_mode">list,form</field>
+  </record> -->
+
+  <!-- <record id="action_materia" model="ir.actions.act_window">
+    <field name="name">Materias</field>
+    <field name="res_model">gestion_educativa.materia</field>
+    <field name="view_mode">list,form</field>
+  </record> -->
+
+  <!-- <record id="action_grado" model="ir.actions.act_window">
+    <field name="name">Grados</field>
+    <field name="res_model">gestion_educativa.grado</field>
+    <field name="view_mode">list,form</field>
+  </record> -->
+
+  <!-- <record id="action_alumno" model="ir.actions.act_window">
+    <field name="name">Alumnos</field>
+    <field name="res_model">gestion_educativa.alumno</field>
+    <field name="view_mode">list,form</field>
+  </record> -->
+
+  <!-- Elementos de Menú -->
+  <!-- <menuitem id="menu_gestion_educativa_root"
+    name="Gestión Educativa"
+    sequence="10" />
+
+  <menuitem id="menu_gestion_educativa_prpofesor"
+    name="Profesores"
+    parent="menu_gestion_educativa_root"
+    action="action_profesor"
+    sequence="10" />
+
+  <menuitem id="menu_gestion_educativa_horario"
+    name="Horarios"
+    parent="menu_gestion_educativa_root"
+    action="action_horario"
+    sequence="20" />
+
+  <menuitem id="menu_gestion_educativa_materia"
+    name="Materias"
+    parent="menu_gestion_educativa_root"
+    action="action_materia"
+    sequence="30" />
+
+  <menuitem id="menu_gestion_educativa_grado"
+    name="Grados"
+    parent="menu_gestion_educativa_root"
+    action="action_grado"
+    sequence="40" />
+
+  <menuitem id="menu_gestion_educativa_alumno"
+    name="Alumnos"
+    parent="menu_gestion_educativa_root"
+    action="action_alumno"
+    sequence="50" />
+
+  <menuitem id="menu_gestion_educativa_apoderado"
+    name="Apoderados"
+    parent="menu_gestion_educativa_root"
+    action="action_apoderado"
+    sequence="55" />
+
+  <menuitem id="menu_gestion_educativa_comunicado"
+    name="Comunicados"
+    parent="menu_gestion_educativa_root"
+    action="action_comunicado"
+    sequence="60" /> -->
+
+</odoo>

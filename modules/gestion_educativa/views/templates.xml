@@ -1,0 +1,186 @@
+<odoo>
+  <template id="login_template" name="Custom Login Form">
+    <t t-call="web.layout">
+      <!-- READ: ESTE ES MI TEMPLATE  -->
+      <t t-set="html_data" t-value="{'style': 'height: 100%;'}" />
+      <t t-set="head">
+        <style>
+
+          :root {
+          --primary-color: #875A7B;
+          --text-color: #2d3436;
+          --border-color: #e0e0e0;
+          }
+
+          body {
+          background: linear-gradient(145deg, #f5f6fa 0%, #eef2f7 100%) !important;
+          min-height: 100vh;
+          }
+
+          .login-container {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          }
+
+          .login-card {
+          background: white;
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+          border: none;
+          border-radius: 16px;
+          width: 400px;
+          padding: 2.5rem;
+          }
+
+          .logo-wrapper {
+          width: 140px;
+          height: 140px;
+          margin: 0 auto 1.5rem;
+          padding: 1rem;
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 6px 16px rgba(135, 90, 123, 0.12);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          }
+
+          .logo-wrapper img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          }
+
+          .login-title {
+          color: var(--primary-color);
+          font-size: 1.75rem;
+          font-weight: 600;
+          text-align: center;
+          margin: 0 0 2rem 0;
+          }
+
+          .form-group {
+          margin-bottom: 1.5rem;
+          }
+
+          .form-label {
+          display: block;
+          color: var(--text-color);
+          font-size: 1rem;
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+          padding-left: 0.25rem;
+          }
+
+          .form-control {
+          display: block;
+          width: 100%;
+          height: 48px;
+          padding: 0.75rem 1rem;
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.5;
+          color: var(--text-color);
+          background-color: #fff;
+          background-clip: padding-box;
+          border: 1.5px solid var(--border-color);
+          border-radius: 8px;
+          transition: all 0.2s ease-in-out;
+          box-sizing: border-box;
+          }
+
+          .form-control:focus {
+          border-color: var(--primary-color);
+          outline: 0;
+          box-shadow: 0 0 0 3px rgba(135, 90, 123, 0.15);
+          }
+
+          .btn-login {
+          display: block;
+          width: 100%;
+          padding: 0.875rem;
+          margin-top: 1.5rem;
+          background: var(--primary-color);
+          color: white;
+          border: none;
+          border-radius: 8px;
+          font-size: 1.1rem;
+          font-weight: 500;
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          }
+
+          .btn-login:hover {
+          background: #724b68;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(135, 90, 123, 0.2);
+          }
+
+          .error-message {
+          background-color: #fff3f3;
+          border: 1px solid #ffa4a4;
+          color: #e74c3c;
+          padding: 0.75rem;
+          border-radius: 8px;
+          font-size: 0.9rem;
+          margin-bottom: 1.5rem;
+          }
+
+          /* Ajustes para el autocompletado */
+          input:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0px 1000px white inset;
+          }
+        </style>
+      </t>
+
+      <div class="login-container">
+        <div class="login-card">
+          <div class="logo-wrapper">
+            <img t-attf-src="/gestion_educativa/static/src/img/logo.png" alt="Logo" />
+          </div>
+
+          <h2 class="login-title">Gestión Educativa</h2>
+
+          <!-- Modificamos el formulario para CI y matrícula -->
+          <form t-attf-action="/gestion_educativa/login" method="post" class="oe_login_form">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+
+            <!-- Mensaje de error -->
+            <div t-if="error" class="error-message">
+              <t t-esc="error" />
+            </div>
+
+            <!-- Campo CI en lugar de login -->
+            <div class="form-group">
+              <label for="ci" class="form-label">Cédula de Identidad</label>
+              <input type="text"
+                name="ci"
+                t-att-value="ci"
+                id="ci"
+                class="form-control"
+                required="required"
+                autofocus="autofocus" />
+            </div>
+
+            <!-- Campo matrícula en lugar de password -->
+            <div class="form-group">
+              <label for="matricula" class="form-label">Número de Matrícula</label>
+              <input type="password"
+                name="matricula"
+                t-att-value="matricula"
+                id="matricula"
+                class="form-control"
+                required="required" />
+            </div>
+
+            <button type="submit" class="btn btn-login">
+              Iniciar Sesión
+            </button>
+          </form>
+        </div>
+      </div>
+    </t>
+  </template>
+</odoo>

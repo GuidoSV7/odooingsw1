@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas Form de Alumno -->
+    <record id="view_alumno_form" model="ir.ui.view">
+        <field name="name">gestion_educativa.alumno.form</field>
+        <field name="model">gestion_educativa.alumno</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="nombre_completo" placeholder="Nombre Completo" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="ci" />
+                            <field name="numero_matricula" />
+                            <field name="numero_kardex" />
+                        </group>
+                        <group>
+                            <field name="telefono" />
+                            <field name="direccion" />
+                            <field name="grado_id" />
+                            <field name="apoderado_id" /> <!-- Añadido campo de apoderado -->
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Comunicados">
+                            <field name="comunicado_ids">
+                                <list>
+                                    <field name="titulo" />
+                                    <field name="cuando" />
+                                    <field name="donde" />
+                                    <field name="visto" />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Search de Alumnos -->
+    <record id="view_alumno_search" model="ir.ui.view">
+        <field name="name">gestion_educativa.alumno.search</field>
+        <field name="model">gestion_educativa.alumno</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre_completo" />
+                <field name="ci" />
+                <field name="numero_matricula" />
+                <field name="numero_kardex" />
+                <field name="grado_id" />
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Grado" name="group_by_grado" context="{'group_by': 'grado_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_alumno" model="ir.actions.act_window">
+        <field name="name">Alumnos</field>
+        <field name="res_model">gestion_educativa.alumno</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

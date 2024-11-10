@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vistas de Horario -->
+    <record id="view_horario_form" model="ir.ui.view">
+        <field name="name">gestion_educativa.horario.form</field>
+        <field name="model">gestion_educativa.horario</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="dia" />
+                            <field name="hora_inicio" widget="float_time" />
+                            <field name="hora_fin" widget="float_time" />
+                        </group>
+                        <group>
+                            <field name="profesor_id" />
+                            <field name="materia_id" />
+                            <field name="grado_id" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Lista de Horarios -->
+    <record id="view_horario_list" model="ir.ui.view">
+        <field name="name">gestion_educativa.horario.list</field>
+        <field name="model">gestion_educativa.horario</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="display_name" />
+                <field name="profesor_id" />
+                <field name="materia_id" />
+                <field name="grado_id" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Search de Horarios -->
+    <record id="view_horario_search" model="ir.ui.view">
+        <field name="name">gestion_educativa.horario.search</field>
+        <field name="model">gestion_educativa.horario</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="profesor_id" />
+                <field name="materia_id" />
+                <field name="grado_id" />
+                <separator />
+                <filter string="Lunes" name="lunes" domain="[('dia', '=', 'lunes')]" />
+                <filter string="Martes" name="martes" domain="[('dia', '=', 'martes')]" />
+                <filter string="Miércoles" name="miercoles" domain="[('dia', '=', 'miercoles')]" />
+                <filter string="Jueves" name="jueves" domain="[('dia', '=', 'jueves')]" />
+                <filter string="Viernes" name="viernes" domain="[('dia', '=', 'viernes')]" />
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Día" name="group_by_dia" context="{'group_by': 'dia'}" />
+                    <filter string="Profesor" name="group_by_profesor"
+                        context="{'group_by': 'profesor_id'}" />
+                    <filter string="Materia" name="group_by_materia"
+                        context="{'group_by': 'materia_id'}" />
+                    <filter string="Grado" name="group_by_grado" context="{'group_by': 'grado_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_horario" model="ir.actions.act_window">
+        <field name="name">Horarios</field>
+        <field name="res_model">gestion_educativa.horario</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

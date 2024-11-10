@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Elementos de Menú -->
+    <menuitem
+        id="menu_gestion_educativa_root"
+        name="Gestión Educativa"
+        sequence="10" />
+
+    <menuitem
+        id="menu_gestion_educativa_profesor"
+        name="Profesores"
+        parent="menu_gestion_educativa_root"
+        action="action_profesor"
+        sequence="10" />
+
+    <menuitem
+        id="menu_gestion_educativa_horario"
+        name="Horarios"
+        parent="menu_gestion_educativa_root"
+        action="action_horario"
+        sequence="20" />
+
+    <menuitem
+        id="menu_gestion_educativa_materia"
+        name="Materias"
+        parent="menu_gestion_educativa_root"
+        action="action_materia"
+        sequence="30" />
+
+    <menuitem
+        id="menu_gestion_educativa_grado"
+        name="Grados"
+        parent="menu_gestion_educativa_root"
+        action="action_grado"
+        sequence="40" />
+
+    <menuitem
+        id="menu_gestion_educativa_alumno"
+        name="Alumnos"
+        parent="menu_gestion_educativa_root"
+        action="action_alumno"
+        sequence="50" />
+
+    <menuitem
+        id="menu_gestion_educativa_apoderado"
+        name="Apoderados"
+        parent="menu_gestion_educativa_root"
+        action="action_apoderado"
+        sequence="55" />
+
+    <menuitem
+        id="menu_gestion_educativa_comunicado"
+        name="Comunicados"
+        parent="menu_gestion_educativa_root"
+        action="action_comunicado"
+        sequence="60" />
+</odoo>

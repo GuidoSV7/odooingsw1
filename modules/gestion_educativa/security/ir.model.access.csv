@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gestion_educativa_profesor,gestion_educativa.profesor,model_gestion_educativa_profesor,base.group_user,1,1,1,1
+access_gestion_educativa_horario,gestion_educativa.horario,model_gestion_educativa_horario,base.group_user,1,1,1,1
+access_gestion_educativa_materia,gestion_educativa.materia,model_gestion_educativa_materia,base.group_user,1,1,1,1
+access_gestion_educativa_grado,gestion_educativa.grado,model_gestion_educativa_grado,base.group_user,1,1,1,1
+access_gestion_educativa_alumno,gestion_educativa.alumno,model_gestion_educativa_alumno,base.group_user,1,1,1,1
+access_gestion_educativa_apoderado,gestion_educativa.apoderado,model_gestion_educativa_apoderado,base.group_user,1,1,1,1
+access_gestion_educativa_comunicado,gestion_educativa.comunicado,model_gestion_educativa_comunicado,base.group_user,1,1,1,1
