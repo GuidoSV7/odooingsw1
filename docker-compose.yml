@@ -12,6 +12,7 @@ services:
       - ./volumes/odoo/sessions:/var/lib/odoo/sessions
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
+      - ./modules:/mnt/extra-addons   
       - ./volumes/odoo/web/logs:/var/log/odoo
     environment:
       - HOST=db

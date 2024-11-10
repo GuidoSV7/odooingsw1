@@ -53,3 +53,7 @@ package.json
 
 # Entornos virtuales
 venv/
+
+# .gitignore
+volumes/*
+!volumes/.gitkeep
