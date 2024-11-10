@@ -1,0 +1,35 @@
+# docker-compose.yml
+version: '3'
+services:
+  web:
+    image: odoo:18
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./volumes/odoo/data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+      - ./volumes/odoo/web/logs:/var/log/odoo
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=myodoo
+    restart: always
+
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=myodoo
+      - POSTGRES_USER=odoo
+    volumes:
+      - ./volumes/postgresql:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  odoo-web-data:
+    driver: local
+  odoo-db-data:
+    driver: local

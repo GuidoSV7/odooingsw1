@@ -15,3 +15,11 @@ python odoo-bin -r odoo -w odoo --addons-path=addons,modules -d odoo
 
 
 #user=admin password=admin, esto lo crea odoo
+
+
+#Digital Ocean
+123456OdooRoot
+
+
+
+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
