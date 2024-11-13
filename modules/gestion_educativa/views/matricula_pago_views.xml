@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Secuencia para números de referencia -->
+    <record id="seq_matricula_pago" model="ir.sequence">
+        <field name="name">Secuencia de Pago de Matrícula</field>
+        <field name="code">matricula.pago.sequence</field>
+        <field name="prefix">MAT/%(year)s/</field>
+        <field name="padding">5</field>
+    </record>
+
+    <!-- Vista Form -->
+    <record id="view_matricula_pago_form" model="ir.ui.view">
+        <field name="name">gestion_educativa.matricula_pago.form</field>
+        <field name="model">gestion_educativa.matricula_pago</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_generar_factura" 
+                            string="Generar Factura" 
+                            type="object" 
+                            class="oe_highlight"
+                            invisible="estado != 'borrador'"/>
+                    <field name="estado" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="numero_referencia"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="apoderado_id"/>
+                            <field name="alumno_id" domain="[('apoderado_id', '=', apoderado_id)]"/>
+                            <field name="monto"/>
+                        </group>
+                        <group>
+                            <field name="fecha_pago"/>
+                            <field name="anio_academico"/>
+                            <field name="factura_id" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista list -->
+    <record id="view_matricula_pago_tree" model="ir.ui.view">
+        <field name="name">gestion_educativa.matricula_pago.list</field>
+        <field name="model">gestion_educativa.matricula_pago</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="numero_referencia"/>
+                <field name="apoderado_id"/>
+                <field name="alumno_id"/>
+                <field name="monto"/>
+                <field name="fecha_pago"/>
+                <field name="estado"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Search -->
+    <record id="view_matricula_pago_search" model="ir.ui.view">
+        <field name="name">gestion_educativa.matricula_pago.search</field>
+        <field name="model">gestion_educativa.matricula_pago</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="numero_referencia"/>
+                <field name="apoderado_id"/>
+                <field name="alumno_id"/>
+                <filter string="Pendientes" name="pendientes" domain="[('estado', '=', 'pendiente')]"/>
+                <filter string="Pagados" name="pagados" domain="[('estado', '=', 'pagado')]"/>
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Apoderado" name="group_apoderado" context="{'group_by': 'apoderado_id'}"/>
+                    <filter string="Estado" name="group_estado" context="{'group_by': 'estado'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción de Ventana -->
+    <record id="action_matricula_pago" model="ir.actions.act_window">
+        <field name="name">Pagos de Matrícula</field>
+        <field name="res_model">gestion_educativa.matricula_pago</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menú Principal -->
+    <menuitem id="menu_gestion_educativa"
+              name="Gestión Educativa"
+              sequence="10"/>
+
+    <!-- Submenú para Configuración -->
+    <menuitem id="menu_gestion_educativa_config"
+              name="Configuración"
+              parent="menu_gestion_educativa"
+              sequence="100"/>
+
+    <!-- Menú para Pagos de Matrícula -->
+    <menuitem id="menu_matricula_pago"
+              name="Pagos de Matrícula"
+              parent="menu_gestion_educativa"
+              action="action_matricula_pago"
+              sequence="20"/>
+</odoo>

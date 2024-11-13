@@ -6,3 +6,4 @@ access_gestion_educativa_grado,gestion_educativa.grado,model_gestion_educativa_g
 access_gestion_educativa_alumno,gestion_educativa.alumno,model_gestion_educativa_alumno,base.group_user,1,1,1,1
 access_gestion_educativa_apoderado,gestion_educativa.apoderado,model_gestion_educativa_apoderado,base.group_user,1,1,1,1
 access_gestion_educativa_comunicado,gestion_educativa.comunicado,model_gestion_educativa_comunicado,base.group_user,1,1,1,1
+access_gestion_educativa_matricula_pago,gestion_educativa.matricula.pago,model_gestion_educativa_matricula_pago,base.group_user,1,1,1,1

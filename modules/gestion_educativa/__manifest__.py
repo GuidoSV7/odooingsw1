@@ -10,7 +10,7 @@ Este módulo permite la gestión educativa de una institución escolar. Incluye 
     'category': 'Education',  # Importante
     'version': '0.1',
     
-    'depends': ['base', 'web','mail','portal'],  # Añadimos 'web' como dependencia
+    'depends': ['base', 'web','mail','portal', 'account'],  # Añadimos 'web' como dependencia
     
     'data': [
         'security/ir.model.access.csv',
@@ -22,6 +22,7 @@ Este módulo permite la gestión educativa de una institución escolar. Incluye 
         'views/grado_views.xml',
         'views/horario_views.xml',
         'views/comunicado_views.xml',
+        'views/matricula_pago_views.xml',  # Nuevo archivo de vistas
         'views/menu_views.xml',
         # 'views/views.xml',
     ],

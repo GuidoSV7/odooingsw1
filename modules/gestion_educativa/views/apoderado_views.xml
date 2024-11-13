@@ -6,51 +6,84 @@
         <field name="model">gestion_educativa.apoderado</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="action_crear_pago"
+                            string="Crear Pago de Matrícula"
+                            type="object"
+                            class="oe_highlight"/>
+                </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_pagos"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-money">
+                            <field name="matriculas_pendientes" widget="statinfo" string="Pagos Pendientes"/>
+                        </button>
+                    </div>
                     <div class="oe_title">
                         <h1>
-                            <field name="nombre_completo" placeholder="Nombre Completo" />
+                            <field name="nombre_completo" placeholder="Nombre Completo"/>
                         </h1>
                     </div>
                     <group>
                         <group>
-                            <field name="ci" />
-                            <field name="numero_matricula" />
-                            <field name="telefono" />
+                            <field name="ci"/>
+                            <field name="numero_matricula"/>
+                            <field name="telefono"/>
+                            <field name="total_pagado" widget="monetary"/>
                         </group>
                         <group>
-                            <field name="email" />
-                            <field name="direccion" />
-                            <field name="ocupacion" />
+                            <field name="email"/>
+                            <field name="direccion"/>
+                            <field name="ocupacion"/>
+                            <field name="partner_id" invisible="1"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Alumnos Asignados">
                             <field name="alumno_ids" readonly="1">
                                 <list>
-                                    <field name="nombre_completo" />
-                                    <field name="numero_matricula" />
-                                    <field name="grado_id" />
+                                    <field name="nombre_completo"/>
+                                    <field name="numero_matricula"/>
+                                    <field name="grado_id"/>
                                 </list>
                             </field>
                         </page>
                         <page string="Comunicados">
                             <field name="comunicado_ids">
                                 <list>
-                                    <field name="titulo" />
-                                    <field name="cuando" />
-                                    <field name="donde" />
-                                    <field name="visto" />
+                                    <field name="titulo"/>
+                                    <field name="cuando"/>
+                                    <field name="donde"/>
+                                    <field name="visto"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Pagos de Matrícula">
+                            <field name="pago_matricula_ids">
+                                <list>
+                                    <field name="numero_referencia"/>
+                                    <field name="alumno_id"/>
+                                    <field name="monto"/>
+                                    <field name="fecha_pago"/>
+                                    <field name="estado"/>
+                                    <field name="factura_id"/>
                                 </list>
                             </field>
                         </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>
 
-    <!-- Vista Lista de Apoderados -->
+       <!-- Vista Lista de Apoderados -->
     <record id="view_apoderado_list" model="ir.ui.view">
         <field name="name">gestion_educativa.apoderado.list</field>
         <field name="model">gestion_educativa.apoderado</field>
