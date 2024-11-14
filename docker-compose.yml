@@ -17,7 +17,6 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=myodoo
-      # Añadimos estas variables que faltan
       - DB_HOST=db
       - DB_PORT=5432
       - DB_USER=odoo
