@@ -9,6 +9,12 @@ python odoo-bin -r odoo -w odoo --addons-path=addons -d odoo -i base
 
 python odoo-bin -r odoo -w odoo --addons-path=addons -d odoo 
 
+
+#Modulos a instalar
+- Account
+
+lo instalan desde la interfaz de Odoo, si lo hacen desde el manifest lo hace mal, lo instalan antes de importar el modulo de gestion educativa
+
 #Cuando desarrolles modulos propios
 python odoo-bin -r odoo -w odoo --addons-path=addons,modules -d odoo 
 
@@ -27,3 +33,5 @@ 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
 
 #Para seguir los logs
 docker logs -f odoo_web_1
+
+

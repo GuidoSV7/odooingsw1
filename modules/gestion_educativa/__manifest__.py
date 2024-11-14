@@ -10,7 +10,7 @@ Este módulo permite la gestión educativa de una institución escolar. Incluye 
     'category': 'Education',  # Importante
     'version': '0.1',
     
-    'depends': ['base', 'web','mail','portal', 'account'],  # Añadimos 'web' como dependencia
+    'depends': ['base', 'web','mail','portal'],  # Añadimos 'web' como dependencia
     
     'data': [
         'security/ir.model.access.csv',
