@@ -926,51 +926,105 @@ class ProfesorController(http.Controller):
                         }
                     })
 
-                # Procesar comunicados recibidos
+                # Obtener todos los comunicados tanto del apoderado como de sus alumnos
                 comunicados = []
+                comunicados_procesados = set()  # Para evitar duplicados
+
+                # Procesar comunicados del apoderado
                 for rel in apoderado.comunicado_rel_ids:
-                    comunicado = rel.comunicado_id
-                    profesor_creador = comunicado.profesor_creador_id
-                    
-                    # Determinar prefijo y materia
-                    materia_nombre = None
-                    prefix = "Dir. Escolar"
-                    
-                    if profesor_creador:
-                        # Buscar el horario del profesor relacionado con el grado del alumno
-                        for alumno in apoderado.alumno_ids:
-                            horario = request.env['gestion_educativa.horario'].sudo().search([
-                                ('profesor_id', '=', profesor_creador.id),
-                                ('grado_id', '=', alumno.grado_id.id)
-                            ], limit=1)
-                            if horario:
-                                materia_nombre = horario.materia_id.nombre
-                                prefix = f"Prof. {materia_nombre}"
-                                break
+                    if rel.comunicado_id.id not in comunicados_procesados:
+                        comunicado = rel.comunicado_id
+                        profesor_creador = comunicado.profesor_creador_id
+                        
+                        # Determinar prefijo y materia
+                        materia_nombre = None
+                        prefix = "Dir. Escolar"
+                        
+                        if profesor_creador:
+                            # Buscar el horario del profesor relacionado con el grado del alumno
+                            for alumno in apoderado.alumno_ids:
+                                horario = request.env['gestion_educativa.horario'].sudo().search([
+                                    ('profesor_id', '=', profesor_creador.id),
+                                    ('grado_id', '=', alumno.grado_id.id)
+                                ], limit=1)
+                                if horario:
+                                    materia_nombre = horario.materia_id.nombre
+                                    prefix = f"Prof. {materia_nombre}"
+                                    break
 
-                    profesor_info = {
-                        'id': profesor_creador.id,
-                        'nombre_completo': profesor_creador.nombre_completo,
-                        'materia': materia_nombre
-                    } if profesor_creador else None
+                        profesor_info = {
+                            'id': profesor_creador.id,
+                            'nombre_completo': profesor_creador.nombre_completo,
+                            'materia': materia_nombre
+                        } if profesor_creador else None
 
-                    motivo_completo = f"{prefix}, {comunicado.motivo}"
+                        motivo_completo = f"{prefix}, {comunicado.motivo}"
 
-                    comunicados.append({
-                        'id': comunicado.id,
-                        'titulo': comunicado.titulo,
-                        'titulo_display': dict(comunicado._fields['titulo'].selection).get(comunicado.titulo),
-                        'donde': comunicado.donde,
-                        'cuando': comunicado.cuando.strftime('%Y-%m-%d %H:%M:%S'),
-                        'motivo': motivo_completo,
-                        'visto': rel.visto,
-                        'fecha_visto': rel.fecha_visto.strftime('%Y-%m-%d %H:%M:%S') if rel.fecha_visto else None,
-                        'imagen_url': comunicado.imagen_url if comunicado.imagen_url else None,  # Añadir esta línea
-                        'profesor_creador': profesor_info,
-                        'created_at': comunicado.create_date.strftime('%Y-%m-%d %H:%M:%S')
-                    })
+                        comunicados.append({
+                            'id': comunicado.id,
+                            'titulo': comunicado.titulo,
+                            'titulo_display': dict(comunicado._fields['titulo'].selection).get(comunicado.titulo),
+                            'donde': comunicado.donde,
+                            'cuando': comunicado.cuando.strftime('%Y-%m-%d %H:%M:%S'),
+                            'motivo': motivo_completo,
+                            'visto': rel.visto,
+                            'fecha_visto': rel.fecha_visto.strftime('%Y-%m-%d %H:%M:%S') if rel.fecha_visto else None,
+                            'imagen_url': comunicado.imagen_url if comunicado.imagen_url else None,
+                            'profesor_creador': profesor_info,
+                            'created_at': comunicado.create_date.strftime('%Y-%m-%d %H:%M:%S'),
+                            'destinatario': 'apoderado'
+                        })
+                        comunicados_procesados.add(comunicado.id)
 
-                # Ordenar comunicados por fecha de creación (más recientes primero)
+                # Procesar comunicados de los alumnos
+                for alumno in apoderado.alumno_ids:
+                    for rel in alumno.comunicado_rel_ids:
+                        if rel.comunicado_id.id not in comunicados_procesados:
+                            comunicado = rel.comunicado_id
+                            profesor_creador = comunicado.profesor_creador_id
+                            
+                            # Determinar prefijo y materia
+                            materia_nombre = None
+                            prefix = "Dir. Escolar"
+                            
+                            if profesor_creador:
+                                horario = request.env['gestion_educativa.horario'].sudo().search([
+                                    ('profesor_id', '=', profesor_creador.id),
+                                    ('grado_id', '=', alumno.grado_id.id)
+                                ], limit=1)
+                                if horario:
+                                    materia_nombre = horario.materia_id.nombre
+                                    prefix = f"Prof. {materia_nombre}"
+
+                            profesor_info = {
+                                'id': profesor_creador.id,
+                                'nombre_completo': profesor_creador.nombre_completo,
+                                'materia': materia_nombre
+                            } if profesor_creador else None
+
+                            motivo_completo = f"{prefix}, {comunicado.motivo}"
+
+                            comunicados.append({
+                                'id': comunicado.id,
+                                'titulo': comunicado.titulo,
+                                'titulo_display': dict(comunicado._fields['titulo'].selection).get(comunicado.titulo),
+                                'donde': comunicado.donde,
+                                'cuando': comunicado.cuando.strftime('%Y-%m-%d %H:%M:%S'),
+                                'motivo': motivo_completo,
+                                'visto': rel.visto,
+                                'fecha_visto': rel.fecha_visto.strftime('%Y-%m-%d %H:%M:%S') if rel.fecha_visto else None,
+                                'imagen_url': comunicado.imagen_url if comunicado.imagen_url else None,
+                                'profesor_creador': profesor_info,
+                                'created_at': comunicado.create_date.strftime('%Y-%m-%d %H:%M:%S'),
+                                'destinatario': 'alumno',
+                                'alumno_info': {
+                                    'id': alumno.id,
+                                    'nombre_completo': alumno.nombre_completo
+                                }
+                            })
+                            comunicados_procesados.add(comunicado.id)
+
+                # Ordenar todos los comunicados por fecha de creación (más recientes primero)
                 comunicados.sort(key=lambda x: x['created_at'], reverse=True)
 
                 resultado = {
@@ -1029,54 +1083,13 @@ class ProfesorController(http.Controller):
                     status=404
                 )
 
-            # Obtener comunicados del apoderado y sus alumnos
-            comunicados_apoderado = []
-            comunicados_alumnos = []
+            # Lista única para todos los comunicados
+            comunicados = []
+            comunicados_procesados = set()  # Para evitar duplicados
 
             # Procesar comunicados del apoderado
             for rel in apoderado.comunicado_rel_ids:
-                comunicado = rel.comunicado_id
-                profesor_creador = comunicado.profesor_creador_id
-                
-                materia_nombre = None
-                prefix = "Dir. Escolar"
-                
-                if profesor_creador:
-                    for alumno in apoderado.alumno_ids:
-                        horario = request.env['gestion_educativa.horario'].sudo().search([
-                            ('profesor_id', '=', profesor_creador.id),
-                            ('grado_id', '=', alumno.grado_id.id)
-                        ], limit=1)
-                        if horario:
-                            materia_nombre = horario.materia_id.nombre
-                            prefix = f"Prof. {materia_nombre}"
-                            break
-
-                profesor_info = {
-                    'id': profesor_creador.id,
-                    'nombre_completo': profesor_creador.nombre_completo,
-                    'materia': materia_nombre
-                } if profesor_creador else None
-
-                motivo_completo = f"{prefix}, {comunicado.motivo}"
-
-                comunicados_apoderado.append({
-                    'id': comunicado.id,
-                    'titulo': comunicado.titulo,
-                    'titulo_display': dict(comunicado._fields['titulo'].selection).get(comunicado.titulo),
-                    'donde': comunicado.donde,
-                    'cuando': comunicado.cuando.strftime('%Y-%m-%d %H:%M:%S'),
-                    'motivo': motivo_completo,
-                    'visto': rel.visto,
-                    'fecha_visto': rel.fecha_visto.strftime('%Y-%m-%d %H:%M:%S') if rel.fecha_visto else None,
-                    'imagen_url': comunicado.imagen_url if comunicado.imagen_url else None,  # Añadir esta línea
-                    'profesor_creador': profesor_info,
-                    'created_at': comunicado.create_date.strftime('%Y-%m-%d %H:%M:%S')
-                })
-
-            # Procesar comunicados de los alumnos
-            for alumno in apoderado.alumno_ids:
-                for rel in alumno.comunicado_rel_ids:
+                if rel.comunicado_id.id not in comunicados_procesados:
                     comunicado = rel.comunicado_id
                     profesor_creador = comunicado.profesor_creador_id
                     
@@ -1084,13 +1097,15 @@ class ProfesorController(http.Controller):
                     prefix = "Dir. Escolar"
                     
                     if profesor_creador:
-                        horario = request.env['gestion_educativa.horario'].sudo().search([
-                            ('profesor_id', '=', profesor_creador.id),
-                            ('grado_id', '=', alumno.grado_id.id)
-                        ], limit=1)
-                        if horario:
-                            materia_nombre = horario.materia_id.nombre
-                            prefix = f"Prof. {materia_nombre}"
+                        for alumno in apoderado.alumno_ids:
+                            horario = request.env['gestion_educativa.horario'].sudo().search([
+                                ('profesor_id', '=', profesor_creador.id),
+                                ('grado_id', '=', alumno.grado_id.id)
+                            ], limit=1)
+                            if horario:
+                                materia_nombre = horario.materia_id.nombre
+                                prefix = f"Prof. {materia_nombre}"
+                                break
 
                     profesor_info = {
                         'id': profesor_creador.id,
@@ -1100,7 +1115,7 @@ class ProfesorController(http.Controller):
 
                     motivo_completo = f"{prefix}, {comunicado.motivo}"
 
-                    comunicados_alumnos.append({
+                    comunicados.append({
                         'id': comunicado.id,
                         'titulo': comunicado.titulo,
                         'titulo_display': dict(comunicado._fields['titulo'].selection).get(comunicado.titulo),
@@ -1109,36 +1124,75 @@ class ProfesorController(http.Controller):
                         'motivo': motivo_completo,
                         'visto': rel.visto,
                         'fecha_visto': rel.fecha_visto.strftime('%Y-%m-%d %H:%M:%S') if rel.fecha_visto else None,
-                        'imagen_url': comunicado.imagen_url if comunicado.imagen_url else None,  # Añadir esta línea
+                        'imagen_url': comunicado.imagen_url if comunicado.imagen_url else None,
                         'profesor_creador': profesor_info,
-                        'alumno': {
-                            'id': alumno.id,
-                            'nombre_completo': alumno.nombre_completo,
-                            'grado': alumno.grado_id.nombre
-                        },
-                        'created_at': comunicado.create_date.strftime('%Y-%m-%d %H:%M:%S')
+                        'created_at': comunicado.create_date.strftime('%Y-%m-%d %H:%M:%S'),
+                        'tipo_destinatario': 'apoderado'
                     })
+                    comunicados_procesados.add(comunicado.id)
 
-            # Ordenar ambos tipos de comunicados por fecha
-            comunicados_apoderado.sort(key=lambda x: x['created_at'], reverse=True)
-            comunicados_alumnos.sort(key=lambda x: x['created_at'], reverse=True)
+            # Procesar comunicados de los alumnos
+            for alumno in apoderado.alumno_ids:
+                for rel in alumno.comunicado_rel_ids:
+                    if rel.comunicado_id.id not in comunicados_procesados:
+                        comunicado = rel.comunicado_id
+                        profesor_creador = comunicado.profesor_creador_id
+                        
+                        materia_nombre = None
+                        prefix = "Dir. Escolar"
+                        
+                        if profesor_creador:
+                            horario = request.env['gestion_educativa.horario'].sudo().search([
+                                ('profesor_id', '=', profesor_creador.id),
+                                ('grado_id', '=', alumno.grado_id.id)
+                            ], limit=1)
+                            if horario:
+                                materia_nombre = horario.materia_id.nombre
+                                prefix = f"Prof. {materia_nombre}"
+
+                        profesor_info = {
+                            'id': profesor_creador.id,
+                            'nombre_completo': profesor_creador.nombre_completo,
+                            'materia': materia_nombre
+                        } if profesor_creador else None
+
+                        motivo_completo = f"{prefix}, {comunicado.motivo}"
+
+                        comunicados.append({
+                            'id': comunicado.id,
+                            'titulo': comunicado.titulo,
+                            'titulo_display': dict(comunicado._fields['titulo'].selection).get(comunicado.titulo),
+                            'donde': comunicado.donde,
+                            'cuando': comunicado.cuando.strftime('%Y-%m-%d %H:%M:%S'),
+                            'motivo': motivo_completo,
+                            'visto': rel.visto,
+                            'fecha_visto': rel.fecha_visto.strftime('%Y-%m-%d %H:%M:%S') if rel.fecha_visto else None,
+                            'imagen_url': comunicado.imagen_url if comunicado.imagen_url else None,
+                            'profesor_creador': profesor_info,
+                            'created_at': comunicado.create_date.strftime('%Y-%m-%d %H:%M:%S'),
+                            'tipo_destinatario': 'alumno',
+                            'alumno': {
+                                'id': alumno.id,
+                                'nombre_completo': alumno.nombre_completo,
+                                'grado': alumno.grado_id.nombre
+                            }
+                        })
+                        comunicados_procesados.add(comunicado.id)
+
+            # Ordenar todos los comunicados por fecha de creación (más recientes primero)
+            comunicados.sort(key=lambda x: x['created_at'], reverse=True)
+
+            # Estadísticas generales
+            total_comunicados = len(comunicados)
+            comunicados_no_vistos = len([c for c in comunicados if not c['visto']])
+            comunicados_vistos = len([c for c in comunicados if c['visto']])
 
             resultado = {
-                'comunicados_apoderado': {
-                    'lista': comunicados_apoderado,
-                    'estadisticas': {
-                        'total': len(comunicados_apoderado),
-                        'no_vistos': len([c for c in comunicados_apoderado if not c['visto']]),
-                        'vistos': len([c for c in comunicados_apoderado if c['visto']])
-                    }
-                },
-                'comunicados_alumnos': {
-                    'lista': comunicados_alumnos,
-                    'estadisticas': {
-                        'total': len(comunicados_alumnos),
-                        'no_vistos': len([c for c in comunicados_alumnos if not c['visto']]),
-                        'vistos': len([c for c in comunicados_alumnos if c['visto']])
-                    }
+                'comunicados': comunicados,
+                'estadisticas': {
+                    'total': total_comunicados,
+                    'no_vistos': comunicados_no_vistos,
+                    'vistos': comunicados_vistos
                 }
             }
 
@@ -1148,11 +1202,11 @@ class ProfesorController(http.Controller):
             )
 
         except Exception as e:
-                    return request.make_response(
-                        json.dumps({'error': str(e)}).encode('utf-8'),
-                        headers=[('Content-Type', 'application/json')],
-                        status=500
-                    )
+            return request.make_response(
+                json.dumps({'error': str(e)}).encode('utf-8'),
+                headers=[('Content-Type', 'application/json')],
+                status=500
+            )
         
     # LOGIC : POST PARA MARCAR COMO VISTO UN COMUNICADO DEL APODERADO
     # {
