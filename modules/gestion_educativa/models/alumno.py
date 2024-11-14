@@ -17,10 +17,20 @@ class Alumno(models.Model):
     # Relaciones
     grado_id = fields.Many2one('gestion_educativa.grado', string='Grado', required=True)
     apoderado_id = fields.Many2one('gestion_educativa.apoderado', string='Apoderado', required=True)
+    
+    # Nueva relación usando tabla intermedia
+    comunicado_rel_ids = fields.One2many(
+        'gestion_educativa.comunicado.alumno',
+        'alumno_id',
+        string='Relaciones con comunicados'
+    )
     comunicado_ids = fields.Many2many(
         'gestion_educativa.comunicado',
-        'alumno_comunicado_rel',
-        'alumno_id',
-        'comunicado_id',
-        string='Comunicados Recibidos'
+        string='Comunicados Recibidos',
+        compute='_compute_comunicados'
     )
+
+    @api.depends('comunicado_rel_ids')
+    def _compute_comunicados(self):
+        for alumno in self:
+            alumno.comunicado_ids = alumno.comunicado_rel_ids.mapped('comunicado_id')

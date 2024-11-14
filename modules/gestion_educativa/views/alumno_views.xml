@@ -17,6 +17,7 @@
                             <field name="ci" />
                             <field name="numero_matricula" />
                             <field name="numero_kardex" />
+                            <field name="token_notifi" />
                         </group>
                         <group>
                             <field name="telefono" />
@@ -27,18 +28,32 @@
                     </group>
                     <notebook>
                         <page string="Comunicados">
-                            <field name="comunicado_ids">
+                             <field name="comunicado_rel_ids"> <!-- Cambiado a la relación correcta -->
                                 <list>
-                                    <field name="titulo" />
-                                    <field name="cuando" />
-                                    <field name="donde" />
+                                    <field name="comunicado_id" />
                                     <field name="visto" />
+                                    <field name="fecha_visto" />
                                 </list>
                             </field>
                         </page>
                     </notebook>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+        <!-- Vista list de Alumnos -->
+    <record id="view_alumno_list" model="ir.ui.view">
+        <field name="name">gestion_educativa.alumno.list</field>
+        <field name="model">gestion_educativa.alumno</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="nombre_completo" />
+                <field name="ci" />
+                <field name="numero_matricula" />
+                <field name="grado_id" />
+                <field name="apoderado_id" />
+            </list>
         </field>
     </record>
 
@@ -53,8 +68,11 @@
                 <field name="numero_matricula" />
                 <field name="numero_kardex" />
                 <field name="grado_id" />
+                <field name="apoderado_id" />
                 <group expand="0" string="Agrupar Por">
                     <filter string="Grado" name="group_by_grado" context="{'group_by': 'grado_id'}" />
+                    <filter string="Apoderado" name="group_by_apoderado"
+                        context="{'group_by': 'apoderado_id'}" />
                 </group>
             </search>
         </field>

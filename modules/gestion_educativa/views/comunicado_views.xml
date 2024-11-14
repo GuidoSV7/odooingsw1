@@ -9,7 +9,7 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="titulo" placeholder="Título del comunicado..." />
+                            <field name="titulo" placeholder="Seleccione el tipo de comunicado..." />
                         </h1>
                     </div>
                     <group>
@@ -17,19 +17,15 @@
                             <field name="donde" placeholder="Ubicación..." />
                             <field name="cuando" placeholder="Fecha y hora..." />
                             <field name="motivo" placeholder="Motivo del comunicado..." />
+                            <field name="profesor_creador_id" />
                         </group>
                         <group>
-                            <!-- Cambios en el campo imagen -->
                             <field name="imagen"
                                 widget="image"
-                                class="oe_avatar oe_left"
-                                filename="imagen_filename"
-                                options="{
-                              'preview_image': 'imagen',
-                              'size': [400, 400],
-                              'zoom': true
-                          }"
-                            />
+                                class="oe_avatar"
+                                options="{'size': [300, 300], 'preview_image': 'imagen'}"
+                                style="border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 15px 0;"
+                                filename="imagen_filename" />
                             <field name="imagen_filename" invisible="1" />
                         </group>
                     </group>
@@ -43,9 +39,30 @@
                                     <field name="todos_alumnos" />
                                 </group>
                                 <group string="Destinatarios Específicos">
-                                    <field name="profesor_ids" widget="many2many_tags" />
-                                    <field name="apoderado_ids" widget="many2many_tags" />
-                                    <field name="alumno_ids" widget="many2many_tags" />
+                                    <field name="profesor_rel_ids"
+                                        invisible="todos_profesores">
+                                        <list>
+                                            <field name="profesor_id" />
+                                            <field name="visto" />
+                                            <field name="fecha_visto" />
+                                        </list>
+                                    </field>
+                                    <field name="apoderado_rel_ids"
+                                        invisible="todos_apoderados">
+                                        <list>
+                                            <field name="apoderado_id" />
+                                            <field name="visto" />
+                                            <field name="fecha_visto" />
+                                        </list>
+                                    </field>
+                                    <field name="alumno_rel_ids"
+                                        invisible="todos_alumnos">
+                                        <list>
+                                            <field name="alumno_id" />
+                                            <field name="visto" />
+                                            <field name="fecha_visto" />
+                                        </list>
+                                    </field>
                                 </group>
                             </group>
                         </page>
@@ -55,18 +72,16 @@
         </field>
     </record>
 
-    <!-- Vista Lista de Comunicados -->
+    <!-- Vista list de Comunicados -->
     <record id="view_comunicado_list" model="ir.ui.view">
         <field name="name">gestion_educativa.comunicado.list</field>
         <field name="model">gestion_educativa.comunicado</field>
         <field name="arch" type="xml">
-            <list string="Comunicados">
+            <list>
                 <field name="titulo" />
                 <field name="donde" />
                 <field name="cuando" />
-                <field name="profesor_ids" widget="many2many_tags" />
-                <field name="apoderado_ids" widget="many2many_tags" />
-                <field name="alumno_ids" widget="many2many_tags" />
+                <field name="profesor_creador_id" />
             </list>
         </field>
     </record>
@@ -80,27 +95,22 @@
                 <field name="titulo" />
                 <field name="donde" />
                 <field name="motivo" />
-                <filter string="Vistos" name="vistos" domain="[('visto', '=', True)]" />
-                <filter string="No Vistos" name="no_vistos" domain="[('visto', '=', False)]" />
+                <field name="profesor_creador_id" />
                 <group expand="0" string="Agrupar Por">
-                    <filter string="Lugar" name="group_donde" context="{'group_by': 'donde'}" />
-                    <filter string="Fecha" name="group_cuando" context="{'group_by': 'cuando'}" />
+                    <filter name="group_tipo" string="Tipo" context="{'group_by': 'titulo'}" />
+                    <filter name="group_donde" string="Lugar" context="{'group_by': 'donde'}" />
+                    <filter name="group_cuando" string="Fecha" context="{'group_by': 'cuando'}" />
+                    <filter name="group_profesor" string="Profesor"
+                        context="{'group_by': 'profesor_creador_id'}" />
                 </group>
             </search>
         </field>
     </record>
 
+    <!-- Acción del Menú -->
     <record id="action_comunicado" model="ir.actions.act_window">
         <field name="name">Comunicados</field>
         <field name="res_model">gestion_educativa.comunicado</field>
-        <field name="view_mode">list,form,kanban</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Crear nuevo comunicado
-            </p>
-            <p>
-                Cree un nuevo comunicado para informar a la comunidad educativa.
-            </p>
-        </field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

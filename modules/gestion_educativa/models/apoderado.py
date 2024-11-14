@@ -58,13 +58,19 @@ class Apoderado(models.Model):
         'apoderado_id',
         string='Alumnos'
     )
+    
+    comunicado_rel_ids = fields.One2many(
+        'gestion_educativa.comunicado.apoderado',
+        'apoderado_id',
+        string='Relaciones con comunicados'
+    )
+    
     comunicado_ids = fields.Many2many(
         'gestion_educativa.comunicado',
-        'apoderado_comunicado_rel',
-        'apoderado_id',
-        'comunicado_id',
-        string='Comunicados Recibidos'
+        string='Comunicados Recibidos',
+        compute='_compute_comunicados'
     )
+    
     pago_matricula_ids = fields.One2many(
         'gestion_educativa.matricula_pago',
         'apoderado_id',
@@ -83,6 +89,12 @@ class Apoderado(models.Model):
         store=True
     )
 
+    @api.depends('comunicado_rel_ids')
+    def _compute_comunicados(self):
+        for apoderado in self:
+            apoderado.comunicado_ids = apoderado.comunicado_rel_ids.mapped('comunicado_id')
+            
+            
     @api.model
     def create(self, vals):
         # Crear automáticamente un contacto en res.partner si no existe

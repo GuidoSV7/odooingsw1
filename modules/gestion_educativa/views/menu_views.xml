@@ -4,54 +4,78 @@
     <menuitem
         id="menu_gestion_educativa_root"
         name="Gestión Educativa"
+        web_icon="gestion_educativa,static/description/icon.png"
         sequence="10" />
 
+
+    <!-- Submenú para Gestión Académica -->
+    <menuitem
+        id="menu_gestion_academica"
+        name="Gestión Académica"
+        parent="menu_gestion_educativa_root"
+        sequence="10" />
+        
     <menuitem
         id="menu_gestion_educativa_profesor"
         name="Profesores"
-        parent="menu_gestion_educativa_root"
+        parent="menu_gestion_academica"
         action="action_profesor"
         sequence="10" />
 
     <menuitem
+        id="menu_gestion_educativa_materia"
+        name="Materias"
+        parent="menu_gestion_academica"
+        action="action_materia"
+        sequence="20" />
+
+    <menuitem
         id="menu_gestion_educativa_horario"
         name="Horarios"
-        parent="menu_gestion_educativa_root"
+        parent="menu_gestion_academica"
         action="action_horario"
         sequence="20" />
 
     <menuitem
-        id="menu_gestion_educativa_materia"
-        name="Materias"
+        id="menu_gestion_estudiantes"
+        name="Gestión de Estudiantes"
         parent="menu_gestion_educativa_root"
-        action="action_materia"
-        sequence="30" />
+        sequence="20" />
+
+
 
     <menuitem
         id="menu_gestion_educativa_grado"
         name="Grados"
-        parent="menu_gestion_educativa_root"
+        parent="menu_gestion_estudiantes"
         action="action_grado"
-        sequence="40" />
+        sequence="10" />
 
     <menuitem
         id="menu_gestion_educativa_alumno"
         name="Alumnos"
-        parent="menu_gestion_educativa_root"
+        parent="menu_gestion_estudiantes"
         action="action_alumno"
-        sequence="50" />
+        sequence="20" />
 
     <menuitem
         id="menu_gestion_educativa_apoderado"
         name="Apoderados"
-        parent="menu_gestion_educativa_root"
+        parent="menu_gestion_estudiantes"
         action="action_apoderado"
-        sequence="55" />
+        sequence="30" />
+
+    <!-- Submenú para Comunicaciones -->
+    <menuitem
+        id="menu_comunicaciones"
+        name="Comunicaciones"
+        parent="menu_gestion_educativa_root"
+        sequence="30" />
 
     <menuitem
         id="menu_gestion_educativa_comunicado"
         name="Comunicados"
-        parent="menu_gestion_educativa_root"
+        parent="menu_comunicaciones"
         action="action_comunicado"
-        sequence="60" />
+        sequence="10" />
 </odoo>

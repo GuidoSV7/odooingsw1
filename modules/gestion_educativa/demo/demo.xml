@@ -1,224 +1,1369 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data noupdate="1">
-    <!-- Materias -->
-    <record id="materia_matematicas" model="gestion_educativa.materia">
-      <field name="nombre">Matemáticas</field>
-      <field name="sigla">MAT</field>
-    </record>
+  <!-- Materias -->
+  <record id="materia_matematicas" model="gestion_educativa.materia">
+    <field name="nombre">Matemáticas</field>
+    <field name="sigla">MAT</field>
+  </record>
 
-    <record id="materia_fisica" model="gestion_educativa.materia">
-      <field name="nombre">Física</field>
-      <field name="sigla">FIS</field>
-    </record>
+  <record id="materia_lenguaje" model="gestion_educativa.materia">
+    <field name="nombre">Lenguaje</field>
+    <field name="sigla">LEN</field>
+  </record>
 
-    <record id="materia_quimica" model="gestion_educativa.materia">
-      <field name="nombre">Química</field>
-      <field name="sigla">QUI</field>
-    </record>
+  <record id="materia_ciencias" model="gestion_educativa.materia">
+    <field name="nombre">Ciencias Naturales</field>
+    <field name="sigla">CNT</field>
+  </record>
 
-    <record id="materia_lenguaje" model="gestion_educativa.materia">
-      <field name="nombre">Lenguaje</field>
-      <field name="sigla">LEN</field>
-    </record>
+  <record id="materia_sociales" model="gestion_educativa.materia">
+    <field name="nombre">Ciencias Sociales</field>
+    <field name="sigla">CSO</field>
+  </record>
 
-    <record id="materia_historia" model="gestion_educativa.materia">
-      <field name="nombre">Historia</field>
-      <field name="sigla">HIS</field>
-    </record>
+  <record id="materia_ingles" model="gestion_educativa.materia">
+    <field name="nombre">Inglés</field>
+    <field name="sigla">ING</field>
+  </record>
 
-    <record id="materia_biologia" model="gestion_educativa.materia">
-      <field name="nombre">Biología</field>
-      <field name="sigla">BIO</field>
-    </record>
+  <record id="materia_educacion_fisica" model="gestion_educativa.materia">
+    <field name="nombre">Educación Física</field>
+    <field name="sigla">EFI</field>
+  </record>
 
-    <!-- Grados -->
-    <record id="grado_1ro" model="gestion_educativa.grado">
-      <field name="nombre">Primero de Secundaria</field>
-      <field name="sigla">1SEC</field>
-    </record>
+  <record id="materia_arte" model="gestion_educativa.materia">
+    <field name="nombre">Arte</field>
+    <field name="sigla">ART</field>
+  </record>
 
-    <record id="grado_2do" model="gestion_educativa.grado">
-      <field name="nombre">Segundo de Secundaria</field>
-      <field name="sigla">2SEC</field>
-    </record>
+  <record id="materia_musica" model="gestion_educativa.materia">
+    <field name="nombre">Música</field>
+    <field name="sigla">MUS</field>
+  </record>
 
-    <record id="grado_3ro" model="gestion_educativa.grado">
-      <field name="nombre">Tercero de Secundaria</field>
-      <field name="sigla">3SEC</field>
-    </record>
+  <!-- Grados -->
+  <record id="grado_1_primaria" model="gestion_educativa.grado">
+    <field name="nombre">1° de Primaria</field>
+    <field name="sigla">1PRI</field>
+  </record>
 
-    <record id="grado_4to" model="gestion_educativa.grado">
-      <field name="nombre">Cuarto de Secundaria</field>
-      <field name="sigla">4SEC</field>
-    </record>
+  <record id="grado_2_primaria" model="gestion_educativa.grado">
+    <field name="nombre">2° de Primaria</field>
+    <field name="sigla">2PRI</field>
+  </record>
 
-    <!-- Profesores -->
-    <record id="profesor_juan" model="gestion_educativa.profesor">
-      <field name="nombre_completo">Juan Pérez Méndez</field>
-      <field name="ci">1234567</field>
-      <field name="numero_matricula">PROF001</field>
-      <field name="telefono">70123456</field>
-      <field name="email">juan.perez@escuela.com</field>
-      <field name="direccion">Av. Principal #123</field>
-    </record>
+  <record id="grado_3_primaria" model="gestion_educativa.grado">
+    <field name="nombre">3° de Primaria</field>
+    <field name="sigla">3PRI</field>
+  </record>
 
-    <record id="profesor_maria" model="gestion_educativa.profesor">
-      <field name="nombre_completo">María García López</field>
-      <field name="ci">7654321</field>
-      <field name="numero_matricula">PROF002</field>
-      <field name="telefono">70654321</field>
-      <field name="email">maria.garcia@escuela.com</field>
-      <field name="direccion">Calle 2 #456</field>
-    </record>
+  <record id="grado_4_primaria" model="gestion_educativa.grado">
+    <field name="nombre">4° de Primaria</field>
+    <field name="sigla">4PRI</field>
+  </record>
 
-    <record id="profesor_roberto" model="gestion_educativa.profesor">
-      <field name="nombre_completo">Roberto Sánchez Díaz</field>
-      <field name="ci">8901234</field>
-      <field name="numero_matricula">PROF003</field>
-      <field name="telefono">71234567</field>
-      <field name="email">roberto.sanchez@escuela.com</field>
-      <field name="direccion">Av. Central #789</field>
-    </record>
+  <record id="grado_5_primaria" model="gestion_educativa.grado">
+    <field name="nombre">5° de Primaria</field>
+    <field name="sigla">5PRI</field>
+  </record>
 
-    <record id="profesor_ana" model="gestion_educativa.profesor">
-      <field name="nombre_completo">Ana Martínez Ruiz</field>
-      <field name="ci">9012345</field>
-      <field name="numero_matricula">PROF004</field>
-      <field name="telefono">71234568</field>
-      <field name="email">ana.martinez@escuela.com</field>
-      <field name="direccion">Calle 4 #1011</field>
-    </record>
+  <record id="grado_6_primaria" model="gestion_educativa.grado">
+    <field name="nombre">6° de Primaria</field>
+    <field name="sigla">6PRI</field>
+  </record>
 
-    <!-- Apoderados -->
-    <record id="apoderado_carlos" model="gestion_educativa.apoderado">
-      <field name="nombre_completo">Carlos López Ramírez</field>
-      <field name="ci">8901234</field>
-      <field name="numero_matricula">APO001</field>
-      <field name="telefono">71234567</field>
-      <field name="email">carlos.lopez@mail.com</field>
-      <field name="ocupacion">Ingeniero</field>
-      <field name="direccion">Av. Central #789</field>
-    </record>
+  <record id="grado_1_secundaria" model="gestion_educativa.grado">
+    <field name="nombre">1° de Secundaria</field>
+    <field name="sigla">1SEC</field>
+  </record>
 
-    <record id="apoderado_patricia" model="gestion_educativa.apoderado">
-      <field name="nombre_completo">Patricia González Torres</field>
-      <field name="ci">9012345</field>
-      <field name="numero_matricula">APO002</field>
-      <field name="telefono">71234568</field>
-      <field name="email">patricia.gonzalez@mail.com</field>
-      <field name="ocupacion">Médico</field>
-      <field name="direccion">Calle 5 #1213</field>
-    </record>
+  <record id="grado_2_secundaria" model="gestion_educativa.grado">
+    <field name="nombre">2° de Secundaria</field>
+    <field name="sigla">2SEC</field>
+  </record>
 
-    <record id="apoderado_miguel" model="gestion_educativa.apoderado">
-      <field name="nombre_completo">Miguel Rodríguez Silva</field>
-      <field name="ci">1234567</field>
-      <field name="numero_matricula">APO003</field>
-      <field name="telefono">70123456</field>
-      <field name="email">miguel.rodriguez@mail.com</field>
-      <field name="ocupacion">Abogado</field>
-      <field name="direccion">Av. Las Rosas #456</field>
-    </record>
+  <record id="grado_3_secundaria" model="gestion_educativa.grado">
+    <field name="nombre">3° de Secundaria</field>
+    <field name="sigla">3SEC</field>
+  </record>
 
-    <!-- Alumnos -->
-    <record id="alumno_ana" model="gestion_educativa.alumno">
-      <field name="nombre_completo">Ana López González</field>
-      <field name="ci">9012345</field>
-      <field name="numero_matricula">ALU001</field>
-      <field name="numero_kardex">KDX001</field>
-      <field name="telefono">71234568</field>
-      <field name="direccion">Av. Central #789</field>
-      <field name="grado_id" ref="grado_1ro" />
-      <field name="apoderado_id" ref="apoderado_carlos" />
-    </record>
+  <record id="grado_4_secundaria" model="gestion_educativa.grado">
+    <field name="nombre">4° de Secundaria</field>
+    <field name="sigla">4SEC</field>
+  </record>
 
-    <record id="alumno_pedro" model="gestion_educativa.alumno">
-      <field name="nombre_completo">Pedro González Torres</field>
-      <field name="ci">9012346</field>
-      <field name="numero_matricula">ALU002</field>
-      <field name="numero_kardex">KDX002</field>
-      <field name="telefono">71234569</field>
-      <field name="direccion">Calle 5 #1213</field>
-      <field name="grado_id" ref="grado_2do" />
-      <field name="apoderado_id" ref="apoderado_patricia" />
-    </record>
+  <!-- Profesores -->
+  <record id="profesor_01" model="gestion_educativa.profesor">
+    <field name="nombre_completo">María González</field>
+    <field name="ci">1234567</field>
+    <field name="direccion">Av. Principal 123</field>
+    <field name="numero_matricula">PROF001</field>
+    <field name="telefono">70711111</field>
+    <field name="email">maria.gonzalez@escuela.edu</field>
+  </record>
 
-    <record id="alumno_luis" model="gestion_educativa.alumno">
-      <field name="nombre_completo">Luis Rodríguez Pérez</field>
-      <field name="ci">9012347</field>
-      <field name="numero_matricula">ALU003</field>
-      <field name="numero_kardex">KDX003</field>
-      <field name="telefono">71234570</field>
-      <field name="direccion">Av. Las Rosas #456</field>
-      <field name="grado_id" ref="grado_3ro" />
-      <field name="apoderado_id" ref="apoderado_miguel" />
-    </record>
+  <record id="profesor_02" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Juan Pérez</field>
+    <field name="ci">clave123</field>
+    <field name="direccion">Calle 2 #456</field>
+    <field name="numero_matricula">clave123</field>
+    <field name="telefono">70722222</field>
+    <field name="email">juan.perez@escuela.edu</field>
+  </record>
 
-    <!-- Horarios -->
-    <record id="horario_1" model="gestion_educativa.horario">
-      <field name="dia">lunes</field>
-      <field name="hora_inicio">8</field>
-      <field name="hora_fin">9.5</field>
-      <field name="profesor_id" ref="profesor_juan" />
-      <field name="materia_id" ref="materia_matematicas" />
-      <field name="grado_id" ref="grado_1ro" />
-    </record>
+  <record id="profesor_03" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Ana Martínez</field>
+    <field name="ci">3456789</field>
+    <field name="direccion">Av. Central 789</field>
+    <field name="numero_matricula">PROF003</field>
+    <field name="telefono">70733333</field>
+    <field name="email">ana.martinez@escuela.edu</field>
+  </record>
 
-    <record id="horario_2" model="gestion_educativa.horario">
-      <field name="dia">lunes</field>
-      <field name="hora_inicio">9.5</field>
-      <field name="hora_fin">11</field>
-      <field name="profesor_id" ref="profesor_maria" />
-      <field name="materia_id" ref="materia_fisica" />
-      <field name="grado_id" ref="grado_1ro" />
-    </record>
+  <record id="profesor_04" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Carlos Rodríguez</field>
+    <field name="ci">4567890</field>
+    <field name="direccion">Calle 4 #101</field>
+    <field name="numero_matricula">PROF004</field>
+    <field name="telefono">70744444</field>
+    <field name="email">carlos.rodriguez@escuela.edu</field>
+  </record>
 
-    <record id="horario_3" model="gestion_educativa.horario">
-      <field name="dia">martes</field>
-      <field name="hora_inicio">8</field>
-      <field name="hora_fin">9.5</field>
-      <field name="profesor_id" ref="profesor_roberto" />
-      <field name="materia_id" ref="materia_quimica" />
-      <field name="grado_id" ref="grado_2do" />
-    </record>
+  <record id="profesor_05" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Laura Sánchez</field>
+    <field name="ci">218048513</field>
+    <field name="direccion">Av. Los Pinos 202</field>
+    <field name="numero_matricula">218048513</field>
+    <field name="telefono">70755555</field>
+    <field name="email">laura.sanchez@escuela.edu</field>
+  </record>
 
-    <record id="horario_4" model="gestion_educativa.horario">
-      <field name="dia">martes</field>
-      <field name="hora_inicio">9.5</field>
-      <field name="hora_fin">11</field>
-      <field name="profesor_id" ref="profesor_ana" />
-      <field name="materia_id" ref="materia_lenguaje" />
-      <field name="grado_id" ref="grado_2do" />
-    </record>
+  <record id="profesor_06" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Roberto López</field>
+    <field name="ci">6789012</field>
+    <field name="direccion">Calle 6 #303</field>
+    <field name="numero_matricula">PROF006</field>
+    <field name="telefono">70766666</field>
+    <field name="email">roberto.lopez@escuela.edu</field>
+  </record>
 
-    <!-- Comunicados -->
-    <record id="comunicado_1" model="gestion_educativa.comunicado">
-      <field name="titulo">Reunión de Padres - Primer Trimestre</field>
-      <field name="donde">Auditorio Principal</field>
-      <field name="cuando" eval="(datetime.now() + timedelta(days=5)).strftime('%Y-%m-%d 14:00:00')" />
-      <field name="motivo">Reunión informativa sobre el rendimiento académico del primer trimestre</field>
-      <field name="profesor_creador_id" ref="profesor_juan" />
-      <field name="todos_apoderados" eval="True" />
-    </record>
+  <record id="profesor_07" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Patricia Torres</field>
+    <field name="ci">7890123</field>
+    <field name="direccion">Av. Las Flores 404</field>
+    <field name="numero_matricula">PROF007</field>
+    <field name="telefono">70777777</field>
+    <field name="email">patricia.torres@escuela.edu</field>
+  </record>
 
-    <record id="comunicado_2" model="gestion_educativa.comunicado">
-      <field name="titulo">Feria de Ciencias</field>
-      <field name="donde">Patio Central</field>
-      <field name="cuando"
-        eval="(datetime.now() + timedelta(days=10)).strftime('%Y-%m-%d 09:00:00')" />
-      <field name="motivo">Presentación de proyectos científicos de los estudiantes</field>
-      <field name="profesor_creador_id" ref="profesor_maria" />
-      <field name="todos_alumnos" eval="True" />
-      <field name="todos_profesores" eval="True" />
-    </record>
+  <record id="profesor_08" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Miguel Flores</field>
+    <field name="ci">8901234</field>
+    <field name="direccion">Calle 8 #505</field>
+    <field name="numero_matricula">PROF008</field>
+    <field name="telefono">70788888</field>
+    <field name="email">miguel.flores@escuela.edu</field>
+  </record>
 
-    <record id="comunicado_3" model="gestion_educativa.comunicado">
-      <field name="titulo">Taller de Capacitación Docente</field>
-      <field name="donde">Sala de Profesores</field>
-      <field name="cuando" eval="(datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d 15:30:00')" />
-      <field name="motivo">Capacitación sobre nuevas metodologías de enseñanza</field>
-      <field name="todos_profesores" eval="True" />
-    </record>
-  </data>
+  <record id="profesor_09" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Carmen Vargas</field>
+    <field name="ci">9012345</field>
+    <field name="direccion">Av. Principal 606</field>
+    <field name="numero_matricula">PROF009</field>
+    <field name="telefono">70799999</field>
+    <field name="email">carmen.vargas@escuela.edu</field>
+  </record>
+
+  <record id="profesor_10" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Daniel Morales</field>
+    <field name="ci">juanito123</field>
+    <field name="direccion">Calle 10 #707</field>
+    <field name="numero_matricula">juanito123</field>
+    <field name="telefono">70710000</field>
+    <field name="email">daniel.morales@escuela.edu</field>
+  </record>
+
+  <record id="profesor_11" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Isabel Castro</field>
+    <field name="ci">1234567</field>
+    <field name="direccion">Av. Las Palmas 808</field>
+    <field name="numero_matricula">PROF011</field>
+    <field name="telefono">70711100</field>
+    <field name="email">isabel.castro@escuela.edu</field>
+  </record>
+
+  <record id="profesor_12" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Fernando Ríos</field>
+    <field name="ci">78452415</field>
+    <field name="direccion">Calle 12 #909</field>
+    <field name="numero_matricula">78452415</field>
+    <field name="telefono">70712200</field>
+    <field name="email">fernando.rios@escuela.edu</field>
+  </record>
+
+  <record id="profesor_13" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Lucía Mendoza</field>
+    <field name="ci">3456789</field>
+    <field name="direccion">Av. Central 1010</field>
+    <field name="numero_matricula">PROF013</field>
+    <field name="telefono">70713300</field>
+    <field name="email">lucia.mendoza@escuela.edu</field>
+  </record>
+
+  <record id="profesor_14" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Jorge Herrera</field>
+    <field name="ci">4567890</field>
+    <field name="direccion">Calle 14 #1111</field>
+    <field name="numero_matricula">PROF014</field>
+    <field name="telefono">70714400</field>
+    <field name="email">jorge.herrera@escuela.edu</field>
+  </record>
+
+  <record id="profesor_15" model="gestion_educativa.profesor">
+    <field name="nombre_completo">Silvia Ortiz</field>
+    <field name="ci">5678901</field>
+    <field name="direccion">Av. Los Pinos 1212</field>
+    <field name="numero_matricula">PROF015</field>
+    <field name="telefono">70715500</field>
+    <field name="email">silvia.ortiz@escuela.edu</field>
+  </record>
+
+  <!-- Horarios -->
+  <record id="horario_01" model="gestion_educativa.horario">
+    <field name="dia">lunes</field>
+    <field name="hora_inicio">08:00</field>
+    <field name="hora_fin">09:30</field>
+    <field name="profesor_id" ref="profesor_01" />
+    <field name="materia_id" ref="materia_matematicas" />
+    <field name="grado_id" ref="grado_1_primaria" />
+  </record>
+
+  <record id="horario_02" model="gestion_educativa.horario">
+    <field name="dia">lunes</field>
+    <field name="hora_inicio">09:45</field>
+    <field name="hora_fin">11:15</field>
+    <field name="profesor_id" ref="profesor_02" />
+    <field name="materia_id" ref="materia_lenguaje" />
+    <field name="grado_id" ref="grado_2_primaria" />
+  </record>
+
+  <record id="horario_03" model="gestion_educativa.horario">
+    <field name="dia">martes</field>
+    <field name="hora_inicio">08:00</field>
+    <field name="hora_fin">09:30</field>
+    <field name="profesor_id" ref="profesor_03" />
+    <field name="materia_id" ref="materia_ciencias" />
+    <field name="grado_id" ref="grado_3_primaria" />
+  </record>
+
+  <record id="horario_04" model="gestion_educativa.horario">
+    <field name="dia">martes</field>
+    <field name="hora_inicio">09:45</field>
+    <field name="hora_fin">11:15</field>
+    <field name="profesor_id" ref="profesor_04" />
+    <field name="materia_id" ref="materia_sociales" />
+    <field name="grado_id" ref="grado_4_primaria" />
+  </record>
+
+  <record id="horario_05" model="gestion_educativa.horario">
+    <field name="dia">miercoles</field>
+    <field name="hora_inicio">08:00</field>
+    <field name="hora_fin">09:30</field>
+    <field name="profesor_id" ref="profesor_05" />
+    <field name="materia_id" ref="materia_ingles" />
+    <field name="grado_id" ref="grado_5_primaria" />
+  </record>
+
+  <record id="horario_06" model="gestion_educativa.horario">
+    <field name="dia">miercoles</field>
+    <field name="hora_inicio">09:45</field>
+    <field name="hora_fin">11:15</field>
+    <field name="profesor_id" ref="profesor_06" />
+    <field name="materia_id" ref="materia_educacion_fisica" />
+    <field name="grado_id" ref="grado_6_primaria" />
+  </record>
+
+  <record id="horario_07" model="gestion_educativa.horario">
+    <field name="dia">jueves</field>
+    <field name="hora_inicio">08:00</field>
+    <field name="hora_fin">09:30</field>
+    <field name="profesor_id" ref="profesor_07" />
+    <field name="materia_id" ref="materia_arte" />
+    <field name="grado_id" ref="grado_1_secundaria" />
+  </record>
+
+  <record id="horario_08" model="gestion_educativa.horario">
+    <field name="dia">jueves</field>
+    <field name="hora_inicio">09:45</field>
+    <field name="hora_fin">11:15</field>
+    <field name="profesor_id" ref="profesor_08" />
+    <field name="materia_id" ref="materia_musica" />
+    <field name="grado_id" ref="grado_2_secundaria" />
+  </record>
+
+  <record id="horario_09" model="gestion_educativa.horario">
+    <field name="dia">viernes</field>
+    <field name="hora_inicio">08:00</field>
+    <field name="hora_fin">09:30</field>
+    <field name="profesor_id" ref="profesor_09" />
+    <field name="materia_id" ref="materia_matematicas" />
+    <field name="grado_id" ref="grado_3_secundaria" />
+  </record>
+
+  <record id="horario_10" model="gestion_educativa.horario">
+    <field name="dia">viernes</field>
+    <field name="hora_inicio">09:45</field>
+    <field name="hora_fin">11:15</field>
+    <field name="profesor_id" ref="profesor_10" />
+    <field name="materia_id" ref="materia_lenguaje" />
+    <field name="grado_id" ref="grado_4_secundaria" />
+  </record>
+
+  <record id="horario_11" model="gestion_educativa.horario">
+    <field name="dia">lunes</field>
+    <field name="hora_inicio">11:30</field>
+    <field name="hora_fin">13:00</field>
+    <field name="profesor_id" ref="profesor_11" />
+    <field name="materia_id" ref="materia_ciencias" />
+    <field name="grado_id" ref="grado_1_primaria" />
+  </record>
+
+  <record id="horario_12" model="gestion_educativa.horario">
+    <field name="dia">martes</field>
+    <field name="hora_inicio">11:30</field>
+    <field name="hora_fin">13:00</field>
+    <field name="profesor_id" ref="profesor_12" />
+    <field name="materia_id" ref="materia_sociales" />
+    <field name="grado_id" ref="grado_2_primaria" />
+  </record>
+
+  <record id="horario_13" model="gestion_educativa.horario">
+    <field name="dia">miercoles</field>
+    <field name="hora_inicio">11:30</field>
+    <field name="hora_fin">13:00</field>
+    <field name="profesor_id" ref="profesor_13" />
+    <field name="materia_id" ref="materia_ingles" />
+    <field name="grado_id" ref="grado_3_primaria" />
+  </record>
+
+  <record id="horario_14" model="gestion_educativa.horario">
+    <field name="dia">jueves</field>
+    <field name="hora_inicio">11:30</field>
+    <field name="hora_fin">13:00</field>
+    <field name="profesor_id" ref="profesor_14" />
+    <field name="materia_id" ref="materia_arte" />
+    <field name="grado_id" ref="grado_4_primaria" />
+  </record>
+
+  <record id="horario_15" model="gestion_educativa.horario">
+    <field name="dia">viernes</field>
+    <field name="hora_inicio">11:30</field>
+    <field name="hora_fin">13:00</field>
+    <field name="profesor_id" ref="profesor_15" />
+    <field name="materia_id" ref="materia_musica" />
+    <field name="grado_id" ref="grado_5_primaria" />
+  </record>
+
+  <!-- Apoderados -->
+  <record id="apoderado_01" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Roberto García</field>
+    <field name="ci">4001001</field>
+    <field name="direccion">Av. Las Flores 123</field>
+    <field name="numero_matricula">APO001</field>
+    <field name="telefono">70755555</field>
+    <field name="email">roberto.garcia@mail.com</field>
+    <field name="ocupacion">Ingeniero</field>
+  </record>
+
+
+  <record id="apoderado_02" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">María López</field>
+    <field name="ci">4001002</field>
+    <field name="direccion">Calle Los Pinos 456</field>
+    <field name="numero_matricula">APO002</field>
+    <field name="telefono">70766666</field>
+    <field name="email">maria.lopez@mail.com</field>
+    <field name="ocupacion">Doctora</field>
+  </record>
+
+
+  <record id="apoderado_03" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Carlos Rodríguez</field>
+    <field name="ci">4001003</field>
+    <field name="direccion">Av. Principal 789</field>
+    <field name="numero_matricula">APO003</field>
+    <field name="telefono">70777777</field>
+    <field name="email">carlos.rodriguez@mail.com</field>
+    <field name="ocupacion">Arquitecto</field>
+  </record>
+
+
+  <record id="apoderado_04" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Ana Martínez</field>
+    <field name="ci">78452415</field>
+    <field name="direccion">Calle Central 101</field>
+    <field name="numero_matricula">78452415</field>
+    <field name="telefono">70788888</field>
+    <field name="email">ana.martinez@mail.com</field>
+    <field name="ocupacion">Profesora</field>
+  </record>
+
+
+  <record id="apoderado_05" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Juan Pérez</field>
+    <field name="ci">4001005</field>
+    <field name="direccion">Av. Los Álamos 202</field>
+    <field name="numero_matricula">APO005</field>
+    <field name="telefono">70799999</field>
+    <field name="email">juan.perez@mail.com</field>
+    <field name="ocupacion">Abogado</field>
+  </record>
+
+
+  <record id="apoderado_06" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Laura Sánchez</field>
+    <field name="ci">4001006</field>
+    <field name="direccion">Calle Las Rosas 303</field>
+    <field name="numero_matricula">APO006</field>
+    <field name="telefono">70711000</field>
+    <field name="email">laura.sanchez@mail.com</field>
+    <field name="ocupacion">Contadora</field>
+  </record>
+
+
+  <record id="apoderado_07" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Pedro Torres</field>
+    <field name="ci">4001007</field>
+    <field name="direccion">Av. Los Pinos 404</field>
+    <field name="numero_matricula">APO007</field>
+    <field name="telefono">70722000</field>
+    <field name="email">pedro.torres@mail.com</field>
+    <field name="ocupacion">Empresario</field>
+  </record>
+
+
+  <record id="apoderado_08" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Carmen Flores</field>
+    <field name="ci">4001008</field>
+    <field name="direccion">Calle Principal 505</field>
+    <field name="numero_matricula">APO008</field>
+    <field name="telefono">70733000</field>
+    <field name="email">carmen.flores@mail.com</field>
+    <field name="ocupacion">Psicóloga</field>
+  </record>
+
+
+  <record id="apoderado_09" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Miguel Castro</field>
+    <field name="ci">4001009</field>
+    <field name="direccion">Av. Central 606</field>
+    <field name="numero_matricula">APO009</field>
+    <field name="telefono">70744000</field>
+    <field name="email">miguel.castro@mail.com</field>
+    <field name="ocupacion">Dentista</field>
+  </record>
+
+
+  <record id="apoderado_10" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Isabel Ríos</field>
+    <field name="ci">4001010</field>
+    <field name="direccion">Calle Las Palmas 707</field>
+    <field name="numero_matricula">APO010</field>
+    <field name="telefono">70755000</field>
+    <field name="email">isabel.rios@mail.com</field>
+    <field name="ocupacion">Periodista</field>
+  </record>
+
+
+  <record id="apoderado_11" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Fernando Mendoza</field>
+    <field name="ci">4001011</field>
+    <field name="direccion">Av. Los Ceibos 808</field>
+    <field name="numero_matricula">APO011</field>
+    <field name="telefono">70766000</field>
+    <field name="email">fernando.mendoza@mail.com</field>
+    <field name="ocupacion">Economista</field>
+  </record>
+
+
+  <record id="apoderado_12" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Patricia Herrera</field>
+    <field name="ci">4001012</field>
+    <field name="direccion">Calle Las Violetas 909</field>
+    <field name="numero_matricula">APO012</field>
+    <field name="telefono">70777000</field>
+    <field name="email">patricia.herrera@mail.com</field>
+    <field name="ocupacion">Veterinaria</field>
+  </record>
+
+
+  <record id="apoderado_13" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Ricardo Ortiz</field>
+    <field name="ci">4001013</field>
+    <field name="direccion">Av. Principal 1010</field>
+    <field name="numero_matricula">APO013</field>
+    <field name="telefono">70788000</field>
+    <field name="email">ricardo.ortiz@mail.com</field>
+    <field name="ocupacion">Comerciante</field>
+  </record>
+
+
+  <record id="apoderado_14" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Diana Paz</field>
+    <field name="ci">4001014</field>
+    <field name="direccion">Calle Los Laureles 1111</field>
+    <field name="numero_matricula">APO014</field>
+    <field name="telefono">70799000</field>
+    <field name="email">diana.paz@mail.com</field>
+    <field name="ocupacion">Enfermera</field>
+  </record>
+
+
+  <record id="apoderado_15" model="gestion_educativa.apoderado">
+    <field name="nombre_completo">Gabriel Silva</field>
+    <field name="ci">4001015</field>
+    <field name="direccion">Av. Las Américas 1212</field>
+    <field name="numero_matricula">APO015</field>
+    <field name="telefono">70711100</field>
+    <field name="email">gabriel.silva@mail.com</field>
+    <field name="ocupacion">Administrador</field>
+  </record>
+
+  <!-- Alumnos -->
+  <record id="alumno_01" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Ana García</field>
+    <field name="ci">pepito123</field>
+    <field name="direccion">Av. Las Flores 123</field>
+    <field name="numero_matricula">pepito123</field>
+    <field name="telefono">70733333</field>
+    <field name="numero_kardex">K001</field>
+    <field name="grado_id" ref="grado_1_primaria" />
+    <field name="apoderado_id" ref="apoderado_01" />
+  </record>
+
+  <record id="alumno_02" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Carlos López</field>
+    <field name="ci">3001002</field>
+    <field name="direccion">Calle Los Pinos 456</field>
+    <field name="numero_matricula">ALU002</field>
+    <field name="telefono">70744444</field>
+    <field name="numero_kardex">K002</field>
+    <field name="grado_id" ref="grado_1_primaria" />
+    <field name="apoderado_id" ref="apoderado_02" />
+  </record>
+
+  <record id="alumno_03" model="gestion_educativa.alumno">
+    <field name="nombre_completo">María Rodríguez</field>
+    <field name="ci">clave123</field>
+    <field name="direccion">Av. Principal 789</field>
+    <field name="numero_matricula">clave123</field>
+    <field name="telefono">70755555</field>
+    <field name="numero_kardex">K003</field>
+    <field name="grado_id" ref="grado_2_primaria" />
+    <field name="apoderado_id" ref="apoderado_03" />
+  </record>
+
+  <record id="alumno_04" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Pedro Martínez</field>
+    <field name="ci">78452415</field>
+    <field name="direccion">Calle Central 101</field>
+    <field name="numero_matricula">78452415</field>
+    <field name="telefono">70766666</field>
+    <field name="numero_kardex">K004</field>
+    <field name="grado_id" ref="grado_2_primaria" />
+    <field name="apoderado_id" ref="apoderado_04" />
+  </record>
+
+  <record id="alumno_05" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Laura Sánchez</field>
+    <field name="ci">3001005</field>
+    <field name="direccion">Av. Los Álamos 202</field>
+    <field name="numero_matricula">ALU005</field>
+    <field name="telefono">70777777</field>
+    <field name="numero_kardex">K005</field>
+    <field name="grado_id" ref="grado_3_primaria" />
+    <field name="apoderado_id" ref="apoderado_05" />
+  </record>
+
+  <record id="alumno_06" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Diego Flores</field>
+    <field name="ci">3001006</field>
+    <field name="direccion">Calle Las Rosas 303</field>
+    <field name="numero_matricula">ALU006</field>
+    <field name="telefono">70788888</field>
+    <field name="numero_kardex">K006</field>
+    <field name="grado_id" ref="grado_3_primaria" />
+    <field name="apoderado_id" ref="apoderado_06" />
+  </record>
+
+  <record id="alumno_07" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Valentina Torres</field>
+    <field name="ci">3001007</field>
+    <field name="direccion">Av. Los Pinos 404</field>
+    <field name="numero_matricula">ALU007</field>
+    <field name="telefono">70799999</field>
+    <field name="numero_kardex">K007</field>
+    <field name="grado_id" ref="grado_4_primaria" />
+    <field name="apoderado_id" ref="apoderado_07" />
+  </record>
+
+  <record id="alumno_08" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Sebastián Vargas</field>
+    <field name="ci">3001008</field>
+    <field name="direccion">Calle Principal 505</field>
+    <field name="numero_matricula">ALU008</field>
+    <field name="telefono">70711111</field>
+    <field name="numero_kardex">K008</field>
+    <field name="grado_id" ref="grado_4_primaria" />
+    <field name="apoderado_id" ref="apoderado_08" />
+  </record>
+
+  <record id="alumno_09" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Isabella Morales</field>
+    <field name="ci">3001009</field>
+    <field name="direccion">Av. Central 606</field>
+    <field name="numero_matricula">ALU009</field>
+    <field name="telefono">70722222</field>
+    <field name="numero_kardex">K009</field>
+    <field name="grado_id" ref="grado_5_primaria" />
+    <field name="apoderado_id" ref="apoderado_09" />
+  </record>
+
+  <record id="alumno_10" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Matías Castro</field>
+    <field name="ci">3001010</field>
+    <field name="direccion">Calle Las Palmas 707</field>
+    <field name="numero_matricula">ALU010</field>
+    <field name="telefono">70733333</field>
+    <field name="numero_kardex">K010</field>
+    <field name="grado_id" ref="grado_5_primaria" />
+    <field name="apoderado_id" ref="apoderado_10" />
+  </record>
+
+  <record id="alumno_11" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Sofía Ríos</field>
+    <field name="ci">3001011</field>
+    <field name="direccion">Av. Los Ceibos 808</field>
+    <field name="numero_matricula">ALU011</field>
+    <field name="telefono">70744444</field>
+    <field name="numero_kardex">K011</field>
+    <field name="grado_id" ref="grado_1_secundaria" />
+    <field name="apoderado_id" ref="apoderado_11" />
+  </record>
+
+  <record id="alumno_12" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Lucas Mendoza</field>
+    <field name="ci">3001012</field>
+    <field name="direccion">Calle Las Violetas 909</field>
+    <field name="numero_matricula">ALU012</field>
+    <field name="telefono">70755555</field>
+    <field name="numero_kardex">K012</field>
+    <field name="grado_id" ref="grado_1_secundaria" />
+    <field name="apoderado_id" ref="apoderado_12" />
+  </record>
+
+  <record id="alumno_13" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Emma Herrera</field>
+    <field name="ci">3001013</field>
+    <field name="direccion">Av. Principal 1010</field>
+    <field name="numero_matricula">ALU013</field>
+    <field name="telefono">70766666</field>
+    <field name="numero_kardex">K013</field>
+    <field name="grado_id" ref="grado_2_secundaria" />
+    <field name="apoderado_id" ref="apoderado_13" />
+  </record>
+
+  <record id="alumno_14" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Benjamín Ortiz</field>
+    <field name="ci">3001014</field>
+    <field name="direccion">Calle Los Laureles 1111</field>
+    <field name="numero_matricula">ALU014</field>
+    <field name="telefono">70777777</field>
+    <field name="numero_kardex">K014</field>
+    <field name="grado_id" ref="grado_2_secundaria" />
+    <field name="apoderado_id" ref="apoderado_14" />
+  </record>
+
+  <record id="alumno_15" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Camila Paz</field>
+    <field name="ci">3001015</field>
+    <field name="direccion">Av. Las Américas 1212</field>
+    <field name="numero_matricula">ALU015</field>
+    <field name="telefono">70788888</field>
+    <field name="numero_kardex">K015</field>
+    <field name="grado_id" ref="grado_3_secundaria" />
+    <field name="apoderado_id" ref="apoderado_15" />
+  </record>
+
+  <record id="alumno_16" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Santiago Silva</field>
+    <field name="ci">3001016</field>
+    <field name="direccion">Calle San Martín 1313</field>
+    <field name="numero_matricula">ALU016</field>
+    <field name="telefono">70799999</field>
+    <field name="numero_kardex">K016</field>
+    <field name="grado_id" ref="grado_3_secundaria" />
+    <field name="apoderado_id" ref="apoderado_15" />
+  </record>
+
+  <record id="alumno_17" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Victoria Rojas</field>
+    <field name="ci">3001017</field>
+    <field name="direccion">Av. Los Pinos 1414</field>
+    <field name="numero_matricula">ALU017</field>
+    <field name="telefono">70711000</field>
+    <field name="numero_kardex">K017</field>
+    <field name="grado_id" ref="grado_4_secundaria" />
+    <field name="apoderado_id" ref="apoderado_14" />
+  </record>
+
+  <record id="alumno_18" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Leonardo Cruz</field>
+    <field name="ci">3001018</field>
+    <field name="direccion">Calle Las Palmeras 1515</field>
+    <field name="numero_matricula">ALU018</field>
+    <field name="telefono">70722000</field>
+    <field name="numero_kardex">K018</field>
+    <field name="grado_id" ref="grado_4_secundaria" />
+    <field name="apoderado_id" ref="apoderado_13" />
+  </record>
+
+  <record id="alumno_19" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Martina Vega</field>
+    <field name="ci">3001019</field>
+    <field name="direccion">Av. Central 1616</field>
+    <field name="numero_matricula">ALU019</field>
+    <field name="telefono">70733000</field>
+    <field name="numero_kardex">K019</field>
+    <field name="grado_id" ref="grado_4_secundaria" />
+    <field name="apoderado_id" ref="apoderado_12" />
+  </record>
+
+  <record id="alumno_20" model="gestion_educativa.alumno">
+    <field name="nombre_completo">Emilio Campos</field>
+    <field name="ci">3001020</field>
+    <field name="direccion">Calle Principal 1717</field>
+    <field name="numero_matricula">ALU020</field>
+    <field name="telefono">70744000</field>
+    <field name="numero_kardex">K020</field>
+    <field name="grado_id" ref="grado_4_secundaria" />
+    <field name="apoderado_id" ref="apoderado_11" />
+  </record>
+
+  <!-- Comunicados para todos los profesores -->
+  <record id="comunicado_prof_01" model="gestion_educativa.comunicado">
+    <field name="titulo">reuniones</field>
+    <field name="donde">Sala de Reuniones Principal</field>
+    <field name="cuando">2024-11-15 14:00:00</field>
+    <field name="motivo">Reunión general de profesores para planificación del segundo trimestre. Se
+      discutirán estrategias pedagógicas y evaluaciones.</field>
+    <field name="todos_profesores">True</field>
+  </record>
+
+  <record id="comunicado_prof_02" model="gestion_educativa.comunicado">
+    <field name="titulo">eventos</field>
+    <field name="donde">Auditorio Central</field>
+    <field name="cuando">2024-11-20 09:00:00</field>
+    <field name="motivo">Jornada de capacitación docente sobre nuevas tecnologías educativas.
+      Asistencia obligatoria.</field>
+    <field name="todos_profesores">True</field>
+  </record>
+
+  <record id="comunicado_prof_03" model="gestion_educativa.comunicado">
+    <field name="titulo">informativos</field>
+    <field name="donde">Virtual</field>
+    <field name="cuando">2024-11-25 08:00:00</field>
+    <field name="motivo">Actualización de protocolos de seguridad y procedimientos administrativos.
+      Por favor revisar el documento adjunto.</field>
+    <field name="todos_profesores">True</field>
+  </record>
+
+  <record id="comunicado_prof_04" model="gestion_educativa.comunicado">
+    <field name="titulo">circulares</field>
+    <field name="donde">Toda la institución</field>
+    <field name="cuando">2024-11-28 07:30:00</field>
+    <field name="motivo">Nuevos lineamientos para la entrega de calificaciones y elaboración de
+      informes bimestrales.</field>
+    <field name="todos_profesores">True</field>
+  </record>
+
+  <record id="comunicado_prof_05" model="gestion_educativa.comunicado">
+    <field name="titulo">emergencias</field>
+    <field name="donde">Toda la institución</field>
+    <field name="cuando">2024-11-30 10:00:00</field>
+    <field name="motivo">Simulacro de emergencia programado. Se requiere la participación de todo el
+      personal docente.</field>
+    <field name="todos_profesores">True</field>
+  </record>
+
+  <!-- Comunicados para todos los apoderados -->
+  <record id="comunicado_apod_01" model="gestion_educativa.comunicado">
+    <field name="titulo">reuniones</field>
+    <field name="donde">Auditorio Central</field>
+    <field name="cuando">2024-11-16 18:00:00</field>
+    <field name="motivo">Reunión general de padres de familia para presentar el nuevo sistema de
+      evaluación y calendario académico.</field>
+    <field name="todos_apoderados">True</field>
+  </record>
+
+  <record id="comunicado_apod_02" model="gestion_educativa.comunicado">
+    <field name="titulo">eventos</field>
+    <field name="donde">Patio Central</field>
+    <field name="cuando">2024-11-22 09:00:00</field>
+    <field name="motivo">Feria de Ciencias Anual. Se invita a todos los padres a participar del
+      evento y apoyar a sus hijos.</field>
+    <field name="todos_apoderados">True</field>
+  </record>
+
+  <record id="comunicado_apod_03" model="gestion_educativa.comunicado">
+    <field name="titulo">circulares</field>
+    <field name="donde">Virtual</field>
+    <field name="cuando">2024-11-26 07:00:00</field>
+    <field name="motivo">Información sobre el proceso de matriculación para el próximo año escolar y
+      actualización de datos.</field>
+    <field name="todos_apoderados">True</field>
+  </record>
+
+  <record id="comunicado_apod_04" model="gestion_educativa.comunicado">
+    <field name="titulo">informativos</field>
+    <field name="donde">Toda la institución</field>
+    <field name="cuando">2024-11-29 08:00:00</field>
+    <field name="motivo">Calendario de exámenes finales y procedimientos para la entrega de
+      libretas.</field>
+    <field name="todos_apoderados">True</field>
+  </record>
+
+  <record id="comunicado_apod_05" model="gestion_educativa.comunicado">
+    <field name="titulo">emergencias</field>
+    <field name="donde">Toda la institución</field>
+    <field name="cuando">2024-12-01 07:30:00</field>
+    <field name="motivo">Actualización de protocolos de seguridad y procedimientos de emergencia.
+      Por favor revisar con sus hijos.</field>
+    <field name="todos_apoderados">True</field>
+  </record>
+
+  <!-- Comunicados para todos los alumnos -->
+  <record id="comunicado_alum_01" model="gestion_educativa.comunicado">
+    <field name="titulo">eventos</field>
+    <field name="donde">Polideportivo</field>
+    <field name="cuando">2024-11-18 08:00:00</field>
+    <field name="motivo">Olimpiadas deportivas intercolegiales. Todos los estudiantes deben asistir
+      con uniforme deportivo.</field>
+    <field name="todos_alumnos">True</field>
+  </record>
+
+  <record id="comunicado_alum_02" model="gestion_educativa.comunicado">
+    <field name="titulo">informativos</field>
+    <field name="donde">Biblioteca</field>
+    <field name="cuando">2024-11-21 10:00:00</field>
+    <field name="motivo">Nuevo horario de biblioteca y procedimientos para préstamo de libros.</field>
+    <field name="todos_alumnos">True</field>
+  </record>
+
+  <record id="comunicado_alum_03" model="gestion_educativa.comunicado">
+    <field name="titulo">circulares</field>
+    <field name="donde">Toda la institución</field>
+    <field name="cuando">2024-11-24 07:30:00</field>
+    <field name="motivo">Recordatorio sobre el uso correcto del uniforme escolar y presentación
+      personal.</field>
+    <field name="todos_alumnos">True</field>
+  </record>
+
+  <record id="comunicado_alum_04" model="gestion_educativa.comunicado">
+    <field name="titulo">eventos</field>
+    <field name="donde">Auditorio</field>
+    <field name="cuando">2024-11-27 09:00:00</field>
+    <field name="motivo">Festival de talentos estudiantiles. Inscripciones abiertas para
+      participantes.</field>
+    <field name="todos_alumnos">True</field>
+  </record>
+
+  <record id="comunicado_alum_05" model="gestion_educativa.comunicado">
+    <field name="titulo">informativos</field>
+    <field name="donde">Cada aula</field>
+    <field name="cuando">2024-11-30 08:00:00</field>
+    <field name="motivo">Cronograma de exámenes finales y recomendaciones para la preparación
+      académica.</field>
+    <field name="todos_alumnos">True</field>
+  </record>
+
+
+  <!-- Comunicados del Profesor 1 (María González) - 1° de Primaria -->
+  <record id="comunicado_prof01_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Aula 1° Primaria</field>
+    <field name="cuando">2024-11-15 08:00:00</field>
+    <field name="motivo">Recordatorio: Entrega del proyecto de matemáticas sobre fracciones para la
+      próxima semana.</field>
+    <field name="profesor_creador_id" ref="profesor_01" />
+  </record>
+  <record id="comunicado_prof01_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof01_01" />
+    <field name="alumno_id" ref="alumno_01" />
+  </record>
+  <record id="comunicado_prof01_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof01_01" />
+    <field name="alumno_id" ref="alumno_02" />
+  </record>
+
+  <record id="comunicado_prof01_02" model="gestion_educativa.comunicado">
+    <field name="titulo">felicitaciones</field>
+    <field name="donde">Aula 1° Primaria</field>
+    <field name="cuando">2024-11-16 08:00:00</field>
+    <field name="motivo">Felicitaciones al curso por su excelente participación en la clase de
+      matemáticas.</field>
+    <field name="profesor_creador_id" ref="profesor_01" />
+  </record>
+  <record id="comunicado_prof01_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof01_02" />
+    <field name="alumno_id" ref="alumno_01" />
+  </record>
+  <record id="comunicado_prof01_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof01_02" />
+    <field name="alumno_id" ref="alumno_02" />
+  </record>
+
+  <!-- Comunicados del Profesor 2 (Juan Pérez) - 2° de Primaria -->
+  <record id="comunicado_prof02_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Aula 2° Primaria</field>
+    <field name="cuando">2024-11-15 09:45:00</field>
+    <field name="motivo">Para mañana traer el libro de lenguaje y cuaderno de caligrafía.</field>
+    <field name="profesor_creador_id" ref="profesor_02" />
+  </record>
+  <record id="comunicado_prof02_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof02_01" />
+    <field name="alumno_id" ref="alumno_03" />
+  </record>
+  <record id="comunicado_prof02_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof02_01" />
+    <field name="alumno_id" ref="alumno_04" />
+  </record>
+
+  <record id="comunicado_prof02_02" model="gestion_educativa.comunicado">
+    <field name="titulo">comportamiento</field>
+    <field name="donde">Aula 2° Primaria</field>
+    <field name="cuando">2024-11-16 09:45:00</field>
+    <field name="motivo">Recordatorio sobre el comportamiento en clase y respeto a los compañeros.</field>
+    <field name="profesor_creador_id" ref="profesor_02" />
+  </record>
+  <record id="comunicado_prof02_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof02_02" />
+    <field name="alumno_id" ref="alumno_03" />
+  </record>
+  <record id="comunicado_prof02_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof02_02" />
+    <field name="alumno_id" ref="alumno_04" />
+  </record>
+
+  <record id="comunicado_prof03_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Aula 3° Primaria</field>
+    <field name="cuando">2024-11-15 08:00:00</field>
+    <field name="motivo">Proyecto de ciencias: Traer materiales para el experimento sobre el ciclo
+      del agua.</field>
+    <field name="profesor_creador_id" ref="profesor_03" />
+  </record>
+  <record id="comunicado_prof03_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof03_01" />
+    <field name="alumno_id" ref="alumno_05" />
+  </record>
+  <record id="comunicado_prof03_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof03_01" />
+    <field name="alumno_id" ref="alumno_06" />
+  </record>
+
+  <record id="comunicado_prof03_02" model="gestion_educativa.comunicado">
+    <field name="titulo">rendimiento</field>
+    <field name="donde">Aula 3° Primaria</field>
+    <field name="cuando">2024-11-16 08:00:00</field>
+    <field name="motivo">Felicitaciones por los excelentes resultados en el último examen de
+      ciencias.</field>
+    <field name="profesor_creador_id" ref="profesor_03" />
+  </record>
+  <record id="comunicado_prof03_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof03_02" />
+    <field name="alumno_id" ref="alumno_05" />
+  </record>
+  <record id="comunicado_prof03_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof03_02" />
+    <field name="alumno_id" ref="alumno_06" />
+  </record>
+
+  <!-- Comunicados del Profesor 4 (Carlos Rodríguez) - 4° de Primaria -->
+  <record id="comunicado_prof04_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Aula 4° Primaria</field>
+    <field name="cuando">2024-11-15 09:45:00</field>
+    <field name="motivo">Preparación para exposición de Ciencias Sociales sobre las culturas
+      precolombinas.</field>
+    <field name="profesor_creador_id" ref="profesor_04" />
+  </record>
+  <record id="comunicado_prof04_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof04_01" />
+    <field name="alumno_id" ref="alumno_07" />
+  </record>
+  <record id="comunicado_prof04_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof04_01" />
+    <field name="alumno_id" ref="alumno_08" />
+  </record>
+
+  <record id="comunicado_prof04_02" model="gestion_educativa.comunicado">
+    <field name="titulo">citaciones</field>
+    <field name="donde">Sala de reuniones</field>
+    <field name="cuando">2024-11-16 14:00:00</field>
+    <field name="motivo">Reunión con apoderados para discutir el proyecto final del semestre.</field>
+    <field name="profesor_creador_id" ref="profesor_04" />
+  </record>
+  <record id="comunicado_prof04_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof04_02" />
+    <field name="alumno_id" ref="alumno_07" />
+  </record>
+  <record id="comunicado_prof04_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof04_02" />
+    <field name="alumno_id" ref="alumno_08" />
+  </record>
+
+  <!-- Comunicados del Profesor 5 (Laura Sánchez) - 5° de Primaria -->
+  <record id="comunicado_prof05_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Aula 5° Primaria</field>
+    <field name="cuando">2024-11-15 08:00:00</field>
+    <field name="motivo">Evaluación de inglés programada para la próxima semana. Temas: Present
+      Perfect y Past Simple.</field>
+    <field name="profesor_creador_id" ref="profesor_05" />
+  </record>
+  <record id="comunicado_prof05_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof05_01" />
+    <field name="alumno_id" ref="alumno_09" />
+  </record>
+  <record id="comunicado_prof05_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof05_01" />
+    <field name="alumno_id" ref="alumno_10" />
+  </record>
+
+  <record id="comunicado_prof05_02" model="gestion_educativa.comunicado">
+    <field name="titulo">rendimiento</field>
+    <field name="donde">Aula 5° Primaria</field>
+    <field name="cuando">2024-11-16 08:00:00</field>
+    <field name="motivo">Notas del proyecto de conversación en inglés ya publicadas en la
+      plataforma.</field>
+    <field name="profesor_creador_id" ref="profesor_05" />
+  </record>
+  <record id="comunicado_prof05_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof05_02" />
+    <field name="alumno_id" ref="alumno_09" />
+  </record>
+  <record id="comunicado_prof05_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof05_02" />
+    <field name="alumno_id" ref="alumno_10" />
+  </record>
+
+  <!-- Comunicados del Profesor 6 (Roberto López) - 6° de Primaria -->
+  <record id="comunicado_prof06_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Cancha deportiva</field>
+    <field name="cuando">2024-11-15 09:45:00</field>
+    <field name="motivo">Evaluación práctica de educación física: pruebas de resistencia y
+      velocidad.</field>
+    <field name="profesor_creador_id" ref="profesor_06" />
+  </record>
+  <record id="comunicado_prof06_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof06_01" />
+    <field name="alumno_id" ref="alumno_11" />
+  </record>
+  <record id="comunicado_prof06_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof06_01" />
+    <field name="alumno_id" ref="alumno_12" />
+  </record>
+
+  <record id="comunicado_prof06_02" model="gestion_educativa.comunicado">
+    <field name="titulo">felicitaciones</field>
+    <field name="donde">Cancha deportiva</field>
+    <field name="cuando">2024-11-16 09:45:00</field>
+    <field name="motivo">Felicitaciones al curso por su destacada participación en las olimpiadas
+      deportivas.</field>
+    <field name="profesor_creador_id" ref="profesor_06" />
+  </record>
+  <record id="comunicado_prof06_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof06_02" />
+    <field name="alumno_id" ref="alumno_11" />
+  </record>
+  <record id="comunicado_prof06_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof06_02" />
+    <field name="alumno_id" ref="alumno_12" />
+  </record>
+
+  <!-- Comunicados del Profesor 7 (Patricia Torres) - 1° de Secundaria -->
+  <record id="comunicado_prof07_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Sala de Arte</field>
+    <field name="cuando">2024-11-15 08:00:00</field>
+    <field name="motivo">Entrega del proyecto final de arte: técnicas mixtas y autorretrato.</field>
+    <field name="profesor_creador_id" ref="profesor_07" />
+  </record>
+  <record id="comunicado_prof07_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof07_01" />
+    <field name="alumno_id" ref="alumno_13" />
+  </record>
+  <record id="comunicado_prof07_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof07_01" />
+    <field name="alumno_id" ref="alumno_14" />
+  </record>
+
+  <record id="comunicado_prof07_02" model="gestion_educativa.comunicado">
+    <field name="titulo">eventos</field>
+    <field name="donde">Galería de Arte</field>
+    <field name="cuando">2024-11-16 08:00:00</field>
+    <field name="motivo">Exposición de trabajos artísticos del semestre. Se invita a todos los
+      padres de familia.</field>
+    <field name="profesor_creador_id" ref="profesor_07" />
+  </record>
+  <record id="comunicado_prof07_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof07_02" />
+    <field name="alumno_id" ref="alumno_13" />
+  </record>
+  <record id="comunicado_prof07_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof07_02" />
+    <field name="alumno_id" ref="alumno_14" />
+  </record>
+
+  <!-- Comunicados del Profesor 9 (Carmen Vargas) - 3° Secundaria - Matemáticas -->
+  <record id="comunicado_prof09_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Aula 3° Secundaria</field>
+    <field name="cuando">2024-11-15 08:00:00</field>
+    <field name="motivo">Evaluación de álgebra programada para el próximo viernes. Temas: Ecuaciones
+      cuadráticas y factorización.</field>
+    <field name="profesor_creador_id" ref="profesor_09" />
+  </record>
+  <record id="comunicado_prof09_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof09_01" />
+    <field name="alumno_id" ref="alumno_15" />
+  </record>
+  <record id="comunicado_prof09_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof09_01" />
+    <field name="alumno_id" ref="alumno_16" />
+  </record>
+
+  <record id="comunicado_prof09_02" model="gestion_educativa.comunicado">
+    <field name="titulo">rendimiento</field>
+    <field name="donde">Sala de estudios</field>
+    <field name="cuando">2024-11-16 14:00:00</field>
+    <field name="motivo">Taller de refuerzo en matemáticas para preparación de exámenes finales.</field>
+    <field name="profesor_creador_id" ref="profesor_09" />
+  </record>
+  <record id="comunicado_prof09_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof09_02" />
+    <field name="alumno_id" ref="alumno_15" />
+  </record>
+  <record id="comunicado_prof09_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof09_02" />
+    <field name="alumno_id" ref="alumno_16" />
+  </record>
+
+  <!-- Comunicados del Profesor 10 (Daniel Morales) - 4° Secundaria - Lenguaje -->
+  <record id="comunicado_prof10_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Aula 4° Secundaria</field>
+    <field name="cuando">2024-11-15 09:45:00</field>
+    <field name="motivo">Presentación de ensayos literarios sobre el realismo mágico
+      latinoamericano.</field>
+    <field name="profesor_creador_id" ref="profesor_10" />
+  </record>
+  <record id="comunicado_prof10_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof10_01" />
+    <field name="alumno_id" ref="alumno_17" />
+  </record>
+  <record id="comunicado_prof10_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof10_01" />
+    <field name="alumno_id" ref="alumno_18" />
+  </record>
+
+  <record id="comunicado_prof10_02" model="gestion_educativa.comunicado">
+    <field name="titulo">felicitaciones</field>
+    <field name="donde">Biblioteca</field>
+    <field name="cuando">2024-11-16 09:45:00</field>
+    <field name="motivo">Felicitaciones por la excelente participación en el concurso de oratoria.</field>
+    <field name="profesor_creador_id" ref="profesor_10" />
+  </record>
+  <record id="comunicado_prof10_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof10_02" />
+    <field name="alumno_id" ref="alumno_17" />
+  </record>
+  <record id="comunicado_prof10_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof10_02" />
+    <field name="alumno_id" ref="alumno_18" />
+  </record>
+
+  <!-- Comunicados del Profesor 11 (Isabel Castro) - 1° Primaria - Ciencias -->
+  <record id="comunicado_prof11_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Laboratorio de Ciencias</field>
+    <field name="cuando">2024-11-15 11:30:00</field>
+    <field name="motivo">Proyecto de ciencias: Los seres vivos y su hábitat. Traer materiales para
+      maqueta.</field>
+    <field name="profesor_creador_id" ref="profesor_11" />
+  </record>
+  <record id="comunicado_prof11_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof11_01" />
+    <field name="alumno_id" ref="alumno_01" />
+  </record>
+  <record id="comunicado_prof11_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof11_01" />
+    <field name="alumno_id" ref="alumno_02" />
+  </record>
+
+  <record id="comunicado_prof11_02" model="gestion_educativa.comunicado">
+    <field name="titulo">rendimiento</field>
+    <field name="donde">Aula 1° Primaria</field>
+    <field name="cuando">2024-11-16 11:30:00</field>
+    <field name="motivo">Resultados de la evaluación práctica sobre las partes de las plantas.</field>
+    <field name="profesor_creador_id" ref="profesor_11" />
+  </record>
+  <record id="comunicado_prof11_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof11_02" />
+    <field name="alumno_id" ref="alumno_01" />
+  </record>
+  <record id="comunicado_prof11_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof11_02" />
+    <field name="alumno_id" ref="alumno_02" />
+  </record>
+
+  <!-- Comunicados del Profesor 12 (Fernando Ríos) - 2° Primaria - Ciencias Sociales -->
+  <record id="comunicado_prof12_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Aula 2° Primaria</field>
+    <field name="cuando">2024-11-15 11:30:00</field>
+    <field name="motivo">Exposición sobre las costumbres y tradiciones de nuestra ciudad.</field>
+    <field name="profesor_creador_id" ref="profesor_12" />
+  </record>
+  <record id="comunicado_prof12_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof12_01" />
+    <field name="alumno_id" ref="alumno_03" />
+  </record>
+  <record id="comunicado_prof12_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof12_01" />
+    <field name="alumno_id" ref="alumno_04" />
+  </record>
+
+  <record id="comunicado_prof12_02" model="gestion_educativa.comunicado">
+    <field name="titulo">eventos</field>
+    <field name="donde">Patio Central</field>
+    <field name="cuando">2024-11-16 11:30:00</field>
+    <field name="motivo">Feria cultural: Presentación de platos típicos y danzas tradicionales.</field>
+    <field name="profesor_creador_id" ref="profesor_12" />
+  </record>
+  <record id="comunicado_prof12_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof12_02" />
+    <field name="alumno_id" ref="alumno_03" />
+  </record>
+  <record id="comunicado_prof12_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof12_02" />
+    <field name="alumno_id" ref="alumno_04" />
+  </record>
+
+  <!-- Comunicados del Profesor 13 (Lucía Mendoza) - 3° Primaria - Inglés -->
+  <record id="comunicado_prof13_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Aula 3° Primaria</field>
+    <field name="cuando">2024-11-15 11:30:00</field>
+    <field name="motivo">Práctica oral: Presentación sobre 'My Family and Friends' en inglés.</field>
+    <field name="profesor_creador_id" ref="profesor_13" />
+  </record>
+  <record id="comunicado_prof13_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof13_01" />
+    <field name="alumno_id" ref="alumno_05" />
+  </record>
+  <record id="comunicado_prof13_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof13_01" />
+    <field name="alumno_id" ref="alumno_06" />
+  </record>
+
+  <record id="comunicado_prof13_02" model="gestion_educativa.comunicado">
+    <field name="titulo">felicitaciones</field>
+    <field name="donde">Aula de Inglés</field>
+    <field name="cuando">2024-11-16 11:30:00</field>
+    <field name="motivo">Excellent work! Felicitaciones por el progreso en la pronunciación y
+      vocabulario.</field>
+    <field name="profesor_creador_id" ref="profesor_13" />
+  </record>
+  <record id="comunicado_prof13_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof13_02" />
+    <field name="alumno_id" ref="alumno_05" />
+  </record>
+  <record id="comunicado_prof13_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof13_02" />
+    <field name="alumno_id" ref="alumno_06" />
+  </record>
+
+  <!-- Comunicados del Profesor 14 (Jorge Herrera) - 4° Primaria - Arte -->
+  <record id="comunicado_prof14_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Sala de Arte</field>
+    <field name="cuando">2024-11-15 11:30:00</field>
+    <field name="motivo">Traer materiales para el proyecto de pintura con acuarelas.</field>
+    <field name="profesor_creador_id" ref="profesor_14" />
+  </record>
+  <record id="comunicado_prof14_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof14_01" />
+    <field name="alumno_id" ref="alumno_07" />
+  </record>
+  <record id="comunicado_prof14_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof14_01" />
+    <field name="alumno_id" ref="alumno_08" />
+  </record>
+
+  <record id="comunicado_prof14_02" model="gestion_educativa.comunicado">
+    <field name="titulo">eventos</field>
+    <field name="donde">Galería de Arte</field>
+    <field name="cuando">2024-11-16 11:30:00</field>
+    <field name="motivo">Exposición de trabajos artísticos del trimestre. Invitación a toda la
+      comunidad educativa.</field>
+    <field name="profesor_creador_id" ref="profesor_14" />
+  </record>
+  <record id="comunicado_prof14_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof14_02" />
+    <field name="alumno_id" ref="alumno_07" />
+  </record>
+  <record id="comunicado_prof14_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof14_02" />
+    <field name="alumno_id" ref="alumno_08" />
+  </record>
+
+  <!-- Comunicados del Profesor 15 (Silvia Ortiz) - 5° Primaria - Música -->
+  <record id="comunicado_prof15_01" model="gestion_educativa.comunicado">
+    <field name="titulo">tareas</field>
+    <field name="donde">Sala de Música</field>
+    <field name="cuando">2024-11-15 11:30:00</field>
+    <field name="motivo">Práctica grupal para el concierto de fin de año. Traer instrumentos
+      musicales.</field>
+    <field name="profesor_creador_id" ref="profesor_15" />
+  </record>
+  <record id="comunicado_prof15_01_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof15_01" />
+    <field name="alumno_id" ref="alumno_09" />
+  </record>
+  <record id="comunicado_prof15_01_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof15_01" />
+    <field name="alumno_id" ref="alumno_10" />
+  </record>
+
+  <!-- Continuación del último comunicado del Profesor 15 (Silvia Ortiz) -->
+  <record id="comunicado_prof15_02" model="gestion_educativa.comunicado">
+    <field name="titulo">eventos</field>
+    <field name="donde">Auditorio</field>
+    <field name="cuando">2024-11-16 11:30:00</field>
+    <field name="motivo">Presentación del coro escolar y ensamble musical. Se invita a todos los
+      padres de familia al concierto de cierre de temporada.</field>
+    <field name="profesor_creador_id" ref="profesor_15" />
+  </record>
+  <record id="comunicado_prof15_02_rel1" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof15_02" />
+    <field name="alumno_id" ref="alumno_09" />
+  </record>
+  <record id="comunicado_prof15_02_rel2" model="gestion_educativa.comunicado.alumno">
+    <field name="comunicado_id" ref="comunicado_prof15_02" />
+    <field name="alumno_id" ref="alumno_10" />
+  </record>
 </odoo>

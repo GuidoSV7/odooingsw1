@@ -32,6 +32,7 @@
                             <field name="numero_matricula"/>
                             <field name="telefono"/>
                             <field name="total_pagado" widget="monetary"/>
+                            <field name="token_notifi" />
                         </group>
                         <group>
                             <field name="email"/>
@@ -51,12 +52,11 @@
                             </field>
                         </page>
                         <page string="Comunicados">
-                            <field name="comunicado_ids">
+                            <field name="comunicado_rel_ids"> <!-- Cambiado a la relación correcta -->
                                 <list>
-                                    <field name="titulo"/>
-                                    <field name="cuando"/>
-                                    <field name="donde"/>
-                                    <field name="visto"/>
+                                    <field name="comunicado_id" />
+                                    <field name="visto" />
+                                    <field name="fecha_visto" />
                                 </list>
                             </field>
                         </page>
@@ -91,11 +91,24 @@
             <list>
                 <field name="nombre_completo" />
                 <field name="ci" />
-                <field name="numero_matricula" />
                 <field name="telefono" />
                 <field name="email" />
                 <field name="ocupacion" />
             </list>
+        </field>
+    </record>
+
+        <!-- Vista Search de Apoderados -->
+    <record id="view_apoderado_search" model="ir.ui.view">
+        <field name="name">gestion_educativa.apoderado.search</field>
+        <field name="model">gestion_educativa.apoderado</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre_completo" />
+                <field name="ci" />
+                <field name="email" />
+                <field name="telefono" />
+            </search>
         </field>
     </record>
 

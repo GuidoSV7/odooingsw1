@@ -17,6 +17,7 @@
                             <field name="ci" />
                             <field name="numero_matricula" />
                             <field name="telefono" />
+                            <field name="token_notifi" />
                         </group>
                         <group>
                             <field name="email" />
@@ -28,8 +29,8 @@
                             <field name="horario_ids">
                                 <list>
                                     <field name="dia" />
-                                    <field name="hora_inicio" widget="float_time" />
-                                    <field name="hora_fin" widget="float_time" />
+                                    <field name="hora_inicio" />
+                                    <field name="hora_fin" />
                                     <field name="materia_id" />
                                     <field name="grado_id" />
                                 </list>
@@ -38,13 +39,11 @@
                         <page string="Comunicados">
                             <notebook>
                                 <page string="Comunicados Recibidos">
-                                    <field name="comunicado_recibido_ids">
+                                    <field name="comunicado_rel_ids">
                                         <list>
-                                            <field name="titulo" />
-                                            <field name="cuando" />
-                                            <field name="donde" />
-                                            <field name="motivo" />
+                                            <field name="comunicado_id" />
                                             <field name="visto" />
+                                            <field name="fecha_visto" />
                                         </list>
                                     </field>
                                 </page>
@@ -66,7 +65,7 @@
         </field>
     </record>
 
-    <!-- Vista Lista de Profesores -->
+    <!-- Vista list de Profesores -->
     <record id="view_profesor_list" model="ir.ui.view">
         <field name="name">gestion_educativa.profesor.list</field>
         <field name="model">gestion_educativa.profesor</field>
@@ -96,23 +95,16 @@
                     domain="[('horario_ids', '!=', False)]" />
                 <filter string="Sin Horarios" name="sin_horarios"
                     domain="[('horario_ids', '=', False)]" />
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Email" name="group_by_email" context="{'group_by': 'email'}" />
+                </group>
             </search>
         </field>
     </record>
 
-    <!-- Acción de ventana para Profesor -->
     <record id="action_profesor" model="ir.actions.act_window">
         <field name="name">Profesores</field>
         <field name="res_model">gestion_educativa.profesor</field>
         <field name="view_mode">list,form</field>
-        <field name="target">main</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Crear nuevo profesor
-            </p>
-            <p>
-                Registre aquí los datos de los profesores.
-            </p>
-        </field>
     </record>
 </odoo>

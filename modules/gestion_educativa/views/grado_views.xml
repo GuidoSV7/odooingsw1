@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Vistas Form de Grado -->
+    <!-- Vista Form de Grado -->
     <record id="view_grado_form" model="ir.ui.view">
         <field name="name">gestion_educativa.grado.form</field>
         <field name="model">gestion_educativa.grado</field>
@@ -22,6 +22,7 @@
                                     <field name="nombre_completo" />
                                     <field name="numero_matricula" />
                                     <field name="numero_kardex" />
+                                    <field name="apoderado_id" />
                                 </list>
                             </field>
                         </page>
@@ -29,8 +30,8 @@
                             <field name="horario_ids">
                                 <list>
                                     <field name="dia" />
-                                    <field name="hora_inicio" widget="float_time" />
-                                    <field name="hora_fin" widget="float_time" />
+                                    <field name="hora_inicio" />
+                                    <field name="hora_fin" />
                                     <field name="profesor_id" />
                                     <field name="materia_id" />
                                 </list>
@@ -39,6 +40,30 @@
                     </notebook>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <!-- Vista list de Grado -->
+    <record id="view_grado_list" model="ir.ui.view">
+        <field name="name">gestion_educativa.grado.list</field>
+        <field name="model">gestion_educativa.grado</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="nombre" />
+                <field name="sigla" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Search de Grado -->
+    <record id="view_grado_search" model="ir.ui.view">
+        <field name="name">gestion_educativa.grado.search</field>
+        <field name="model">gestion_educativa.grado</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre" />
+                <field name="sigla" />
+            </search>
         </field>
     </record>
 

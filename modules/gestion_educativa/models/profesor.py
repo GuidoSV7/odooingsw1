@@ -12,19 +12,37 @@ class Profesor(models.Model):
     numero_matricula = fields.Char(string='Número de Matrícula', required=True)
     telefono = fields.Char(string='Teléfono')
     email = fields.Char(string='Correo Electrónico')
-    token_notifi = fields.Char(string='Token de Notificación')  
+    token_notifi = fields.Char(string='Token de Notificación') 
     
     # Relaciones
-    horario_ids = fields.One2many('gestion_educativa.horario', 'profesor_id', string='Horarios')
+    
+    horario_ids = fields.One2many(
+        'gestion_educativa.horario', 
+        'profesor_id', 
+        string='Horarios'
+    )
+    
+    # Nueva relación para comunicados recibidos usando la tabla intermedia
+    comunicado_rel_ids = fields.One2many(
+        'gestion_educativa.comunicado.profesor',
+        'profesor_id',
+        string='Relaciones con comunicados'
+    )
+    
     comunicado_recibido_ids = fields.Many2many(
         'gestion_educativa.comunicado',
-        'profesor_comunicado_rel',
-        'profesor_id',
-        'comunicado_id',
-        string='Comunicados Recibidos'
+        string='Comunicados Recibidos',
+        compute='_compute_comunicados'
     )
+    
+    # Mantener la relación de comunicados creados
     comunicado_creado_ids = fields.One2many(
         'gestion_educativa.comunicado',
         'profesor_creador_id',
         string='Comunicados Creados'
     )
+    
+    @api.depends('comunicado_rel_ids')
+    def _compute_comunicados(self):
+        for profesor in self:
+            profesor.comunicado_recibido_ids = profesor.comunicado_rel_ids.mapped('comunicado_id')

@@ -10,8 +10,8 @@
                     <group>
                         <group>
                             <field name="dia" />
-                            <field name="hora_inicio" widget="float_time" />
-                            <field name="hora_fin" widget="float_time" />
+                            <field name="hora_inicio" placeholder="HH:MM" />
+                            <field name="hora_fin" placeholder="HH:MM" />
                         </group>
                         <group>
                             <field name="profesor_id" />
@@ -19,12 +19,13 @@
                             <field name="grado_id" />
                         </group>
                     </group>
+                    <field name="display_name" invisible="1" /> <!-- Campo computado -->
                 </sheet>
             </form>
         </field>
     </record>
 
-    <!-- Vista Lista de Horarios -->
+    <!-- Vista list de Horarios -->
     <record id="view_horario_list" model="ir.ui.view">
         <field name="name">gestion_educativa.horario.list</field>
         <field name="model">gestion_educativa.horario</field>
@@ -47,6 +48,7 @@
                 <field name="profesor_id" />
                 <field name="materia_id" />
                 <field name="grado_id" />
+                <field name="display_name" />
                 <separator />
                 <filter string="Lunes" name="lunes" domain="[('dia', '=', 'lunes')]" />
                 <filter string="Martes" name="martes" domain="[('dia', '=', 'martes')]" />

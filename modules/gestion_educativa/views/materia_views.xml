@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Modificar vista form de Materia -->
+    <!-- Vista Form de Materia -->
     <record id="view_materia_form" model="ir.ui.view">
         <field name="name">gestion_educativa.materia.form</field>
         <field name="model">gestion_educativa.materia</field>
@@ -9,29 +9,19 @@
                 <sheet>
                     <div class="oe_title">
                         <h1>
-                            <field name="sigla" placeholder="Sigla de la Materia"
-                                style="font-size: 24px; font-weight: bold;" />
+                            <field name="nombre" placeholder="Nombre de la Materia" />
                         </h1>
                         <h2>
-                            <field name="nombre" placeholder="Nombre de la Materia"
-                                style="font-size: 16px;" />
+                            <field name="sigla" placeholder="Sigla de la Materia" />
                         </h2>
                     </div>
                     <notebook>
-                        <!-- <page string="Temas">
-              <field name="tema_ids">
-                <list editable="bottom">
-                  <field name="nombre" />
-                  <field name="trimestre" widget="selection" />
-                </list>
-              </field>
-            </page> -->
                         <page string="Horarios">
                             <field name="horario_ids" readonly="1">
                                 <list>
                                     <field name="dia" />
-                                    <field name="hora_inicio" widget="float_time" />
-                                    <field name="hora_fin" widget="float_time" />
+                                    <field name="hora_inicio" />
+                                    <field name="hora_fin" />
                                     <field name="profesor_id" />
                                     <field name="grado_id" />
                                 </list>
@@ -43,7 +33,7 @@
         </field>
     </record>
 
-    <!-- Vista Lista de Materias -->
+    <!-- Vista list de Materias -->
     <record id="view_materia_list" model="ir.ui.view">
         <field name="name">gestion_educativa.materia.list</field>
         <field name="model">gestion_educativa.materia</field>
