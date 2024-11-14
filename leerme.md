@@ -34,4 +34,5 @@ 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
 #Para seguir los logs
 docker logs -f odoo_web_1
 
-
+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
+https://github.com/GuidoSV7/odooingsw1

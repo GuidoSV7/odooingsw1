@@ -1,4 +1,3 @@
-# Crear el archivo actualizado
 version: '3'
 services:
   web:
@@ -18,6 +17,11 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=myodoo
+      # Añadimos estas variables que faltan
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=odoo
+      - DB_PASSWORD=myodoo
     restart: always
 
   db:
